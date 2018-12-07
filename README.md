@@ -53,7 +53,6 @@ shares.columns=' '.join(shares.columns.values).split()
     ```
 
 <br />
-<br />
 
 _함수_
 ===
