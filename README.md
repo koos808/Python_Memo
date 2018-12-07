@@ -52,6 +52,7 @@ shares.columns=' '.join(shares.columns.values).split()
     df_c = pd.concat([k1, k2], axis=1)
     ```
 <br />
+
 _함수_
 ===
 * len() : 문자열, 리스트 길이 반환.
@@ -62,6 +63,7 @@ _함수_
     ```
 
 <br />
+
 _ETC_
 ===
 * # __init__() 
