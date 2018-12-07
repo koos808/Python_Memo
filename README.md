@@ -6,7 +6,7 @@ Python Memo : 파이썬 관련 메모
 * 전처리, 사용자 함수, 자주 사용하는 코드, 이론 등
 
 
-__이론__
+*이론*
 ===
 
 튜플
@@ -21,12 +21,32 @@ __이론__
 
 
 
-__전처리__
+
+_전처리_
 ===
 
-열,컬럼 선택
----
 
-* 1. 공백 제거한 뒤 변수명 일괄 변경
+* 1.공백 제거한 뒤 변수명 일괄 변경
+```
+' '.join(k).split()
+
+ex)
+shares = pd.read_csv("OnlineNewsPopularity.csv")
+k=shares.columns.values.tolist()
+k=' '.join(k).split()
+shares.columns=' '.join(shares.columns.values).split()
+```
+
+* 2.열 선택
+    * a에 해당하는 열 가져오기
+    ```
+    a=["a","b","c"]
+    shares[a] #a,b,c열 가져와짐.
+    ```
+    * a가 아닌 열 가져오기
+    ```
+    shares[shares.columns.difference(a)]
+    ```
+
 
 
