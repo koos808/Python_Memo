@@ -52,9 +52,16 @@ shares.columns=' '.join(shares.columns.values).split()
     df_c = pd.concat([k1, k2], axis=1)
     ```
 
+<br />
+<br />
+
 _함수_
 ===
 * len() : 문자열, 리스트 길이 반환.
 * iloc() : DataFrame 함수로 특정 행의 데이터를 가져온다.
 * 
 
+
+
+_ETC_
+===
