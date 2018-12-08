@@ -119,9 +119,8 @@ _ETC_
         ex1) ['Hello %s' % 'World!']는 ['Hello World']가 된다.
         ex2) ['%d / %d = %.2f' % (10, 3, 10/3)] 이 [ '10 / 3 = 3.33' ]으로 된다.
         ```
-    * 다른 방법으로 `format()` 함수가 있다.
-    이 함수에는 값을 넣을 자리를 {}로 표현한다.
-    ```
-    ex1) ['Hello {}'.format('World!')] -> ['Hello World!']
-    ex2) ['Hello {tail}'.format(tail='World!')] -> ['Hello World!']
-    ``` 
+    * 다른 방법으로 `format()` 함수가 있다. 이 함수에는 값을 넣을 자리를 {}로 표현한다.
+        ```
+        ex1) ['Hello {}'.format('World!')] -> ['Hello World!']
+        ex2) ['Hello {tail}'.format(tail='World!')] -> ['Hello World!']
+        ``` 
