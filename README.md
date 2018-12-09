@@ -124,3 +124,10 @@ _ETC_
         ex1) ['Hello {}'.format('World!')] -> ['Hello World!']
         ex2) ['Hello {tail}'.format(tail='World!')] -> ['Hello World!']
         ``` 
+* 파이참 단축키
+    ```
+    1) 주석제거 ctrl + /
+    2) 실행 shift + F10
+    3) 한줄 실행 Alt + Shift + E
+    4) 코드 축소 ctrl+shift+(-,+)
+    ```
