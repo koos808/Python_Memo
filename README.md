@@ -79,10 +79,17 @@ _함수_
 * Numpy의 zeros() 함수
     * 인자로 배열의 형태인 shape을 받아서 0으로 구성된 NumPy 배열을 반환한다.
          ```
-        ex) zeros(3) -> [0,0,0] 을 반환,
-        zeros((2,2)) -> [ [0,0], [0,0]] 을 반환.
+        ex) np.zeros(3) -> [0,0,0] 을 반환,
+            np.zeros((2,2)) -> [ [0,0], [0,0]] 을 반환.
         ```
     * 주의할 점은 다차원 배열의 경우 그 형태를 튜플로 넘겨줘야 한다는 점이다.
+* Numpy의 full() 함수
+    * 첫 번째 인자는 배열의 형태인 shape을 받는데 사용. 두 번째 인자는 입력된 값으로 채워진 NumPy 배열을 반환한다.
+        ```
+        ex) np.full(3,1) -> [1,1,1]           np.full((2,2), 0.5) -> [ [0.5,0.5], [0.5,0.5]] 를 반환.
+        ```
+    * 주의할 점은 다차원 배열의 경우 그 형태를 튜플로 넘겨줘야 한다.
+
 * Matplotlib의 subplots() 함수
     * 여러 Axes로 구성된 Figure를 생성할 때 효과적이다. 인자로 들어가는 nrows는 행 개수,ncols는 열 개수를 의미한다. nrow가 2이고 ncol이 3이라면 2x3 Axes, 즉 6개의 Axes로 구성된 Figure가 생성된다.
 * zip() 함수
@@ -129,6 +136,13 @@ _함수_
     * rjust()와 비슷한 함수
     * 이 함수는 기존 문자열 앞에 빈칸 또는 특정 문자를 채워준다.
         -> 이렇게 기존 문자 앞 또는 뒤에 어떠한 문자를 채워주는 것을 패딩(padding)이라 한다.
+* Pandas의 replace() 함수
+    * 특정 값을 바꿀 때 사용한다. ffill 메서드를 이용하면 특정 값을 이전의 값으로 변경하고, bfill 메서드를 이용하면 특정 값을 이후의 값으로 값으로 변경할 때 사용한다.
+    ```
+    series=[1,3,0,5,7] 일 때,
+    series.replace(to_replace=0, method='ffill') => 결과 : [1,3,3,5,7]
+    series.replace(to_replace=0, method='bfill') => 결과 : [1,3,5,5,7]
+    ```
 <br />
 
 _ETC_
@@ -162,7 +176,19 @@ _ETC_
 * 파이참 단축키
     ```
     1) 주석제거 ctrl + /
-    2) 실행 shift + F10
+    2) 실행 ctrl + shift + F10
     3) 한줄 실행 Alt + Shift + E
     4) 코드 축소 ctrl+shift+(-,+)
+    ```
+
+
+각종 오류
+===
+
+* locale 설정  
+    * Tensorflow 돌리려는데 다음과 같은 에러가 발생.
+    * locale.Error: unsupported locale setting
+    ```
+    locale.setlocale(locale.LC_ALL, 'ko_KR.UTF-8') 인 기존 코드를 다음과 같이 변경
+    locale.setlocale(locale.LC_ALL, '')
     ```
