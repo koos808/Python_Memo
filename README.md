@@ -143,6 +143,33 @@ _함수_
     series.replace(to_replace=0, method='ffill') => 결과 : [1,3,3,5,7]
     series.replace(to_replace=0, method='bfill') => 결과 : [1,3,5,5,7]
     ```
+* 자주 쓰는 Pandas 함수
+    * 열이름 가져오는 가장 간단한 코드
+        * `df.columns.values.tolist()` or `list(df.columns)`
+    * 행과 열 개수 가져오기
+        * 행 : `df.shape[0]`, `len(df)` , `len(df.index)`  
+        * 열 : `df.shape[1]`, `len(df.columns)`
+    * 변수 타입 확인
+        * `type()`
+    * 특정 열 제외하고 가져오기
+        * `colsum=[1,3,9]` or `colsum=arrange(0,40)`
+        * 이후 `df.iloc[:, ~df.columns.isin(df.columns[colsnum])] `
+    * 열 선택
+        * `ind = ['a', 'b', 'c']` -> `data = data[ind]`
+    * 변경하고 싶은 열 이름 변경
+        * df = `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'})`
+          --- rename the existing DataFrame (rather than creating a copy)
+          `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)`
+          or `df.rename({'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True,axis=1)`
+    * set 자료형을 이용하면 리스트의 차집합,합집합,교집합을 구할 수 있다.
+        * ```
+          s1 = set([1, 2, 3, 4, 5, 6])
+          s2 = set([4, 5, 6, 7, 8, 9])
+          ```
+          - 합집합 : `s1 | s2` or `s1.union(s2)`
+          - 차집합 : `s1 - s2` or `s1.difference(s2)`
+          - 교집합 : `s1 & s2` or `s1.intersection(s2)`
+
 <br />
 
 _ETC_
