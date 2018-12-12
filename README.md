@@ -158,10 +158,10 @@ _함수_
         * `ind = ['a', 'b', 'c']` -> `data = data[ind]`
     * 변경하고 싶은 열 이름 변경
         * df = `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'})`
-          --- rename the existing DataFrame (rather than creating a copy)
+          ## rename the existing DataFrame (rather than creating a copy)
           `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)`
           or `df.rename({'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True,axis=1)`
-    * set 자료형을 이용하면 리스트의 차집합,합집합,교집합을 구할 수 있다.
+    * set 자료형을 이용하면 리스트의 차집합, 합집합, 교집합을 구할 수 있다.
         * ```
           s1 = set([1, 2, 3, 4, 5, 6])
           s2 = set([4, 5, 6, 7, 8, 9])
@@ -169,6 +169,7 @@ _함수_
           - 합집합 : `s1 | s2` or `s1.union(s2)`
           - 차집합 : `s1 - s2` or `s1.difference(s2)`
           - 교집합 : `s1 & s2` or `s1.intersection(s2)`
+        * 마지막에 다시 set 자료형을 리스트로 만들어 주기 -> `list('set자료형이름')`
 
 <br />
 
