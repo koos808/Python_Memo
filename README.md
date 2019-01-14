@@ -180,7 +180,7 @@ _함수_
        a.sort(reverse=True) # = sort(a, reverse=True)
        a
        ## [10, 7, 6, 5, 1]
-            ```
+       ```
 <br />
 
 _ETC_
