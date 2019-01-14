@@ -174,12 +174,11 @@ _함수_
     * ```
        a = [1, 10, 5, 7, 6]
        a.sort() # = sort(a)
-       a
        ## [1, 5, 6, 7, 10]
        a = [1, 10, 5, 7, 6]
-       a.sort(reverse=True) # = sort(a, reverse=True)
-       a
+       a.sort(reverse=True) # = sort(a, reverse=True) 
        ## [10, 7, 6, 5, 1]
+       -> data.frame인 경우 key 옵션으로 지정. key = ~~
        ```
 <br />
 
