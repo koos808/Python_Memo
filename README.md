@@ -172,16 +172,15 @@ _함수_
         * 마지막에 다시 set 자료형을 리스트로 만들어 주기 -> `list('set자료형이름')`
 * 오름차순, 내림차순
     * `변수이름.sort()` or `sorted(변수이름,key=,reverse=)` 둘중 하나 사용
-        * 
-        ```
-        a = [1, 10, 5, 7, 6]
-        a.sort() # = sort(a)
-        -> [1, 5, 6, 7, 10]
-        a = [1, 10, 5, 7, 6]
-        a.sort(reverse=True) # = sort(a, reverse=True) 
-        -> [10, 7, 6, 5, 1]
-        ```
-        
+        * ```
+            a = [1, 10, 5, 7, 6]
+            a.sort() # = sort(a)
+            -> [1, 5, 6, 7, 10]
+            a = [1, 10, 5, 7, 6]
+            a.sort(reverse=True) # = sort(a, reverse=True) 
+            -> [10, 7, 6, 5, 1]
+            ```
+
 
 <br />
 
