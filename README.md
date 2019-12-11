@@ -232,7 +232,12 @@ _ETC_
     ```
 * pandas read.csv 인코딩
     * `data = pd.read_csv('0009.csv',encoding='CP949')`
-
+* 폴더 없으면 생성하기
+    *
+    ```
+    if not os.path.exists(model_object_file_path):
+    os.makedirs(model_object_file_path)
+    ```
 
 각종 오류
 ===
