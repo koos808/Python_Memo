@@ -279,6 +279,7 @@ _ETC_
       ```
     * `jt -t gruvboxd -fs 11 -tfs 12 -dfs 9 -nfs 11 -ofs 11 -f office`
     * `jt -t chesterish`
+    * default로 되돌리기 : `jt -r`
   * etc 기능
     ```
     -h 명령어 documentation 출력
