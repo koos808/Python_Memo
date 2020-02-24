@@ -261,9 +261,24 @@ _ETC_
         * conda 같은 경우 virtualenv + pip 같은 느낌이지만 설치할 수 있는 패키지가 anaconda.org에서 관리하는 패키지로 한정된다는 제한이 있다.
     * 참고 사이트 : https://hashcode.co.kr/questions/3873/conda%EC%99%80-pip%EC%9D%98-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94
 * 쥬피터 노트북(Jupyter notebook) 테마 변경하기
-  * 참고 사이트 : https://optimizing.tistory.com/2
   * 1.anaconda prompt : `pip install jupyterthemes` 입력
-  * 2.`jt -t oceans16 -f hack -fs 12 -T -N` 입력
+  * 2.테마 입력
+  * 여러 테마 예제
+    * `jt -t oceans16 -f hack -fs 12 -T -N`
+    * `jt -t grade3 -f roboto -fs 12 altp -tfs 12 -nfs 12 -cellw 80% -T -N`
+    * `jt -t onedork -T -f oxygen`
+      * 이 테마 적용 시 파이플롯 옵션 추가 `fig = plt.figure()` / `fig.patch.set_facecolor('xkcd:white')`
+    * `jt -t onedork -fs 95 -tfs 11 -nfs 115 -cellw 70% -T`
+      * 이 테마 적용 시 output 잘려보이는 부분 css옵션 추가
+      * ~/.jupyter/custom/custom.css 에서
+      ```
+      div.output_area {
+      display: -webkit-box;
+      padding-left: 20px;
+      }
+      ```
+    * `jt -t gruvboxd -fs 11 -tfs 12 -dfs 9 -nfs 11 -ofs 11 -f office`
+    * `jt -t chesterish`
   * etc 기능
     ```
     -h 명령어 documentation 출력
