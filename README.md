@@ -266,6 +266,15 @@ _ETC_
   * 여러 테마 예제
     * `jt -t oceans16 -f hack -fs 12 -T -N`
     * `jt -t grade3 -f roboto -fs 12 altp -tfs 12 -nfs 12 -cellw 80% -T -N`
+    * `jt -t onedork -f bitstream -T -N -fs 12 -nf opensans -nfs 10`
+      * 
+      ```
+      - f bitstream : 코드 폰트를 bitstream으로 적용
+      - - fs 12 : 글자 크기 12
+      - -T -N : 툴바와 제목을 보임 // default는 안보이는 상태라서 코드를 더 많이 볼 수 있습니다.
+      - -nf : 주피터노트북 폰트를 opensans로 적용
+      - -nfs 10 : 노트북 글자 크기 10
+      ```
     * `jt -t onedork -T -f oxygen`
       * 이 테마 적용 시 파이플롯 옵션 추가 `fig = plt.figure()` / `fig.patch.set_facecolor('xkcd:white')`
     * `jt -t onedork -fs 95 -tfs 11 -nfs 115 -cellw 70% -T`
@@ -280,6 +289,7 @@ _ETC_
     * `jt -t gruvboxd -fs 11 -tfs 12 -dfs 9 -nfs 11 -ofs 11 -f office`
     * `jt -t chesterish`
     * default로 되돌리기 : `jt -r`
+    * 테마 리스트 확인 : `jt -l`
   * etc 기능
     ```
     -h 명령어 documentation 출력
