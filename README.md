@@ -260,3 +260,18 @@ _ETC_
         (물론 conda 도 anaconda.org에서 관리하는 패키지들을 설치할 수 있다.)
         * conda 같은 경우 virtualenv + pip 같은 느낌이지만 설치할 수 있는 패키지가 anaconda.org에서 관리하는 패키지로 한정된다는 제한이 있다.
     * 참고 사이트 : https://hashcode.co.kr/questions/3873/conda%EC%99%80-pip%EC%9D%98-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94
+* 쥬피터 노트북(Jupyter notebook) 테마 변경하기
+  * 참고 사이트 : https://optimizing.tistory.com/2
+  * 1.anaconda prompt : `pip install jupyterthemes` 입력
+  * 2.`jt -t oceans16 -f hack -fs 12 -T -N` 입력
+  * etc 기능
+    ```
+    -h 명령어 documentation 출력
+    -l 적용할 수 있는 테마 이름출력
+    -t theme 해당 이름의 테마 적용
+    -f fontname 폰트의 이름 적용.  고정폭 글꼴만 가능하다보니 선택에 제한있음.
+    hack consola 등등 
+    -fs 폰트사이즈
+    -T 툴바 보이기
+    -N 이름 & 로고 보이기
+    ```
