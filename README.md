@@ -241,6 +241,14 @@ _ETC_
     writer = csv.writer(f)
     writer.writerows(rows)
     ```
+* 엑셀(xlsx) 파일 저장 코드
+  * 
+   ```
+  # 엑셀로 저장하기
+  df.to_excel("test.xlsx")
+  # 엑셀파일 읽기
+  df = pd.read_excel("test.xlsx")
+   ```
 * 폴더 없으면 생성하기
     *
     ```
