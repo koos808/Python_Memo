@@ -232,6 +232,15 @@ _ETC_
     ```
 * pandas read.csv 인코딩
     * `data = pd.read_csv('0009.csv',encoding='CP949')`
+* csv파일(df.to_csv)로 저장할 때 한글깨짐 현상 : encoding='utf8' -> encoding='utf-8-sig'
+    * `pd.DataFrame(rows).to_csv("test2.csv", header = False, index = False, encoding='utf-8-sig')`
+* csv 파일 저장 다른 코드
+  * 
+    ```
+    with open("test.csv", "wt", encoding = 'utf8') as f: # wt: write mode
+    writer = csv.writer(f)
+    writer.writerows(rows)
+    ```
 * 폴더 없으면 생성하기
     *
     ```
@@ -249,8 +258,7 @@ _ETC_
     locale.setlocale(locale.LC_ALL, 'ko_KR.UTF-8') 인 기존 코드를 다음과 같이 변경
     locale.setlocale(locale.LC_ALL, '')
     ```
-* csv파일(df.to_csv)로 저장할 때 한글깨짐 현상 : encoding='utf8' -> encoding='utf-8-sig'
-    * `pd.DataFrame(rows).to_csv("test2.csv", header = False, index = False, encoding='utf-8-sig')`
+
 알아두면 좋은 상식
 ===
 
