@@ -250,10 +250,17 @@ _ETC_
   df = pd.read_excel("test.xlsx")
    ```
 * 폴더 없으면 생성하기
-    *
-    ```
+  * ```
     if not os.path.exists(model_object_file_path):
     os.makedirs(model_object_file_path)
+    ```
+* jupyter notebook에서 여러 output을 한 번에 출력하기
+  * ```
+    from IPython.core.interactiveshell import InteractiveShell
+    InteractiveShell.ast_node_interactivity = "all"
+
+    - jupyter notebook에서는 한 cell에서 output을 마지막 하나만 출력할 수 있어 불편했다.
+    - 아래 코드로 패키지를 불러와 설정을 해주면 한 cell 내에서 여러 개의 결과값을 모두 출력할 수 있게 된다.
     ```
 
 각종 오류
