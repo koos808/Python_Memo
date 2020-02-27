@@ -325,3 +325,5 @@ _ETC_
     -T 툴바 보이기
     -N 이름 & 로고 보이기
     ```
+* 크롬 캡쳐 프로그램없이 전체 화면 캡쳐하는 방법
+  * f12(개발자 도구) -> ctrl + shift + p -> capture full size screenshot 입력
