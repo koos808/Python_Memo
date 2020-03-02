@@ -165,7 +165,21 @@ _함수_
     * `* , / , % , //` : 곱하기, 나누기, 나머지, 몫 
     * `divmod()` 함수 사용하면 몫과 나머지를 튜플 형태로 리턴함.
         * `divmod(7,3)` => (2,1)
+* 리스트에서 조건에 해당하는 값만 추출하기
+  * ```
+    # sample
+    originalList = [1, 2, 44, 52, 61, 7, 28, 92, 10
+    
+    # 1. filter 함수
+    - 형식: filter(함수_이름, iterable)
+    - filter 함수의 인자로 들어가는 함수의 리턴 타입은 bool형이여야 한다. 람다를 쓰면 편하다.
+    - 리턴 타입: iterator (filter object)
+    - code : 
+    filteredList = list(filter(lambda x: x%2==0, originalList))
 
+    # 2. Nested List Comprehension
+    filteredList = [x for x in originalList if x%2==0]
+    ```
 
 <br />
 문자열 관련 처리 및 함수
@@ -186,10 +200,10 @@ _함수_
 * 정규식
     * 문자열에서 숫자 추출하기
         * ```
-            0. 정규식을 사용하기 위해서 re모듈을 사용함.
-            1. 숫자로 뽑아낼 문자열을 변수로 지정
-            2. "\d+ " : 정규식에서 숫자를 나타냄[\는 달러표시로 기입]
-            3. findall()함수를 사용해서 부합하는 모든 문자열을 리스트로 리턴함
+            1. 정규식을 사용하기 위해서 re모듈을 사용함.
+            2. 숫자로 뽑아낼 문자열을 변수로 지정
+            3. "\d+ " : 정규식에서 숫자를 나타냄[\는 달러표시로 기입]
+            4. findall()함수를 사용해서 부합하는 모든 문자열을 리스트로 리턴함
 
             import re
             
@@ -256,6 +270,31 @@ _함수_
             [word for word in word_list if search in word]
             ```
 <br />
+
+크롤링(Crawling)
+===
+* 셀레니움(Selenium)에서 화면 스크린샷(Screenshot) 하기
+    * ```
+        # 현재 페이지 스크린샷
+        screenshot_name = "my_screenshot_name.png"
+        driver.save_screenshot(screenshot_name)
+
+        # 전체 페이지 스크린샷(임시 코드)
+        # 참고 페이지 : https://pypi.org/project/Selenium-Screenshot/
+        pip install Selenium-Screenshot
+
+        from Screenshot import Screenshot_Clipping
+        from selenium import webdriver
+
+        ob=Screenshot_Clipping.Screenshot()
+        driver = webdriver.Chrome()
+        url = "https://github.com/sam4u3/Selenium_Screenshot/tree/master/test"
+        driver.get(url)
+        img_url=ob.full_Screenshot(driver, save_path=r'.', image_name='Myimage.png')
+            # img_url=ob.full_Screenshot(driver, save_path='c://...경로', image_name='Myimage.png')
+        print(img_url)
+        driver.close()
+        ```
 
 _ETC_
 ===
