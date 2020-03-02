@@ -234,6 +234,27 @@ _함수_
         sentence = ' hello  apple'
         " ".join(sentence.split()) # 'hello apple'
         ```
+  * 5. list안 특정 문자열을 포함하는 단어 찾기
+    * sample
+      * ```
+          match_list = list()
+          for word in word_list:
+              if search in word:
+                  match_list.append(word)
+          match_list
+          ```
+    * in을 이용한 특정 문자열 검색
+        * ```
+            match_list = list()
+            for word in word_list:
+                if search in word:
+                    match_list.append(word)
+            match_list
+            ```
+    * in을 이용한 comprehension 표현
+        * ```
+            [word for word in word_list if search in word]
+            ```
 <br />
 
 _ETC_
