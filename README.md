@@ -269,6 +269,8 @@ _함수_
         * ```
             [word for word in word_list if search in word]
             ```
+    * 리스트에서 문자열 인덱스 찾기
+      * `["hello","python","world","!"].index("world")`
 <br />
 
 크롤링(Crawling)
