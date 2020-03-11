@@ -355,6 +355,102 @@ _ETC_
     - jupyter notebook에서는 한 cell에서 output을 마지막 하나만 출력할 수 있어 불편했다.
     - 아래 코드로 패키지를 불러와 설정을 해주면 한 cell 내에서 여러 개의 결과값을 모두 출력할 수 있게 된다.
     ```
+* 가상환경 관련 코드
+    * 가상환경 생성 
+        * `conda create -n my_python_env`
+    * 가상환경 생성 응용
+        * `conda create --name YOUR_ENV_NAME python=3.6.5 tensorflow keras`
+    * 버전 확인
+        * `conda --version`
+    * 가상환경 업데이트
+        * `conda update`
+    * 가상환경 활성화
+        * `conda activate YOUR_ENV_NAME`
+    * 가상환경 비활성화
+        * `conda deactivate`
+    * 가상환경 목록 확인
+        * `conda env list`
+    * 가상환경 삭제
+        * `conda remove --name YOUR_ENV_NAME --all`
+    * 가상환경 추출
+        * `conda env export --name YOUR_ENV_NAME > environment.yml`
+    * 추출한 가상환경으로 새로운 가상환경 생성
+        * `conda env create -f ./environment.yml`
+
+
+
+# Linux Command
+* 사용 tool MobaXterm
+    * `shell  __file__ ` or ` python "__file__" `
+* `htop` : 서버 사용량 확인
+* 커멘드로 파일 또는 폴더 지우기
+    * ` rm -r -f /home/desktop/folder/file `
+* `cd` : 경로 이동
+* sh 파일 실행
+    * ` ./train.sh 20190622 20190702 12 `
+* 파일 & 폴더 복사
+    * 폴더 전체를 복사 : foler_1을 foler_2로 복사
+        * ` cp -R /home/desktop/folder_1 /home/desktop/folder_2 `
+    * 폴더 하위 파일들을 복사 : foler_1의 하위 폴더들을 folder_2에 복사
+        * ` cp -R /home/desktop/folder/file/. /home/desktop/folder_2 `
+* Process 종료
+    * kill -9 35221(해당 프로세스 name) or `ctrl + Shift + C`
+# 리눅스 GIT Command
+* git clone(복사) : cd로 원하는 폴더 이동 후 Command 입력
+    * ` git clone  http://----.git(주소 복사) commit/ ` 주소의 git을 commit 폴더로 복사
+* Commit
+    * 1.global setting
+        * ex) ( 유저네임 , email ,비밀번호)
+        ` git config --global user.email "koos.gu@--.com" `
+        ` git config --global user.name "koos.gu" `
+    * 2.커밋 폴더로 경로 이동 `cd` 사용
+        * 최상위로 이동 : `cd ..` 
+    * 3.log 확인
+        * `git log` or ` git log -1 `
+        * `git status`
+    * 4.Add
+        * `git add scripts/SFA_XGboost.R scripts/Xgboost.R`
+        * 여러 파일 한번에 add(추가)하기
+            * 1. `git add -i`
+            * 2. `add unstracked(4번)` 진입
+            * 3. 열개 파일 있으면 1,2,3,4,5,6,7,8,9,10 입력
+            * 4. ctrl(컨트롤)+d or ctrl(컨트롤)+c 로 나가기
+            * 정상적으로 커밋 후 푸쉬
+    * 5.Commit
+        * `git commit` : [detail NOTE] 입력 후 커밋 내용 작성
+    * 6.Push
+        * `git push origin master`
+    * 7.branch
+        * branch 가져올 때 
+            * `git clone -b stage.oper(branch이름) http://----.git 생성폴더이름(안넣어도됨)`
+        * GIT에서 branch 이후 git clone 
+            * `git clone http://-----.git -b operation(branch이름) oper(생성폴더이름)/`
+            * oper폴더로 이동 : `cd oper/`
+            * 목록 확인 : `ls`
+            * 폴더가 어떤 branch를 향하고 있는지 확인 : `git branch`
+            * 전체 branch 확인 : `git branch -a`
+            * add, rm, cp -R 등 작업 후 커밋, 푸쉬
+                * `git add scripts/---.R scripts/--.R`
+                * `git commit -a` (변경사항 전체 커밋), `git commit 변경파일이름1, 변경파일이름2,...` (부분 커밋)
+                * `git push origin operation(브런치 이름)`
+    * 8.ls
+        * 목록보기
+        * 숨김 파일 및 폴더 모두 확인 : `ls -ahl`
+    * 9.파일 이름 및 위치 변경
+        * `mv preprocess.R preprocess2.R/`
+* 이 페이지 참고하면 좋음 : http://rogerdudler.github.io/git-guide/index.ko.html
+
+# 파이썬 코드로 R 스크립트 실행하기
+* code
+    * 
+    ```
+    import subprocess
+
+    user_home = os.environ['user_home']
+    script_path = os.path.join(user_home,'scripts','default_model.R')
+
+    os.system(script_path)
+    ```
 
 각종 오류
 ===
