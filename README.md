@@ -48,8 +48,11 @@ shares.columns=' '.join(shares.columns.values).split()
 
 _함수_
 ===
+* del() : 변수 삭제
 * len() : 문자열, 리스트 길이 반환.
 * iloc() : DataFrame 함수로 특정 행의 데이터를 가져온다.
+* 고유 값(unique 값) 출력
+    * data -> `list(set(data))`
 * int() : 정수로 형식 변환.
     ```
     int(0.5) = 1       int(1.3)=1
@@ -112,7 +115,7 @@ _함수_
     * os.path.join(path) 함수는 path로 경로를 설정한다.
     * os.path.isdir(path) 함수는 path가 존재하고 폴더인지 확인하는 함수이다.
     * os.path.isfile(path) 함수는 path가 존재하는 파일인지 확인하는 함수이다.
-    * os.mkdirs(path) 함수는 path에 포함된 폴더들이 없을 경우에 생성해 주는 ㅎ마수이다.
+    * os.mkdirs(path) 함수는 path에 포함된 폴더들이 없을 경우에 생성해 주는 함수이다.
        ```
        path가 '/a/b/c'이고 현재 '/a'라는 경로만 존재한다면 '/a'폴더 하위에 'b'폴더를 생성하고
        'b'폴더 하위에 'c'폴더를 생성하여 최종적으로 '/a/b/c' 경로가 존재하도록 만든다.
