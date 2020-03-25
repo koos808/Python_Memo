@@ -154,6 +154,8 @@ _함수_
           - 차집합 : `s1 - s2` or `s1.difference(s2)`
           - 교집합 : `s1 & s2` or `s1.intersection(s2)`
         * 마지막에 다시 set 자료형을 리스트로 만들어 주기 -> `list('set자료형이름')`
+    * 특정 집합, 요소에 해당(포함)하는 데이터만 추출
+        * `all_data[all_data.image_id.isin(train_idx)]` : all_data 데이터에서 image_id 열 중에 train_idx 리스트에 포함된 요소만 추출.
 * 오름차순, 내림차순
     * `변수이름.sort()` or `sorted(변수이름,key=,reverse=)` 둘중 하나 사용
         * ```
