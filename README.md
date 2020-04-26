@@ -519,6 +519,9 @@ _ETC_
     -T 툴바 보이기
     -N 이름 & 로고 보이기
     ```
+    * 내 현재 테마
+      * `jt -t onedork -T -N -kl -f roboto -fs 12 -tfs 11 -nfs 14 -tfs 14 -ofs 10 -cellw 80% -lineh 170 -cursc r -cursw 6`
+      * 참고 : https://chancoding.tistory.com/48
 * 크롬 캡쳐 프로그램없이 전체 화면 캡쳐하는 방법
     * f12(개발자 도구) -> ctrl + shift + p -> capture full size screenshot 입력
 
