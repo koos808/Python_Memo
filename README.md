@@ -86,7 +86,9 @@ shares.columns=' '.join(shares.columns.values).split()
       >>> math.trunc(12.6)
       12
       ```
-
+* 파이썬 제곱(**), 나머지(%)
+  * ex1 : `print(2 ** 10)` # 2의 10제곱 => 1024
+  * ex2 : `print(10 % 2)` # 10을 2로 나누었을 때의 나머지 => 0
 
 _함수_
 ===
