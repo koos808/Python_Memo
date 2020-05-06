@@ -46,6 +46,48 @@ shares.columns=' '.join(shares.columns.values).split()
     ```
 <br />
 
+* 3. 반올림, 올림, 내림
+  * 소수점을 n번째 까지만 표현하고 반올림을 하고싶을때, round 함수를 사용
+  * default는 소수점 첫번째 자리에서 반올림해서 정수로 표현된다.
+    * ex) 
+    ```
+    n = 7/15 -> n = 0.4666666666666667
+    >>> round(n,2)
+    0.47
+    >>> round(n,4)
+    0.4667
+    >>> round(n)
+    0
+    >>> type(round(n))
+    <class 'int'>
+    ``` 
+  * 물론 정수도 반올림 가능
+    * ex)
+      ```
+      >>> round(12345,-1)
+      12340
+      >>> round(12345,-2)
+      12300
+      ```
+  * math.ceil(i) : `올림`, math.floor(i) : `내림`, math.trunc(i) : `버림`
+    * ex)
+      ```
+      >>> import math
+      >>> math.ceil(12.2)
+      13
+      >>> math.ceil(12.6)
+      13
+      >>> math.floor(12.2)
+      12
+      >>> math.floor(12.6)
+      12
+      >>> math.trunc(12.2)
+      12
+      >>> math.trunc(12.6)
+      12
+      ```
+
+
 _함수_
 ===
 * del() : 변수 삭제
@@ -85,6 +127,9 @@ _함수_
         ex) np.full(3,1) -> [1,1,1]           np.full((2,2), 0.5) -> [ [0.5,0.5], [0.5,0.5]] 를 반환.
         ```
     * 주의할 점은 다차원 배열의 경우 그 형태를 튜플로 넘겨줘야 한다.
+* Numpy의 around() 함수 
+    * 반올림 함수
+      * `np.round(data, 2)` or `np.around(data, 2)` 사용
 
 * Matplotlib의 subplots() 함수
     * 여러 Axes로 구성된 Figure를 생성할 때 효과적이다. 인자로 들어가는 nrows는 행 개수,ncols는 열 개수를 의미한다. nrow가 2이고 ncol이 3이라면 2x3 Axes, 즉 6개의 Axes로 구성된 Figure가 생성된다.
