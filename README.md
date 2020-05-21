@@ -167,6 +167,13 @@ _함수_
        path가 '/a/b/c'이고 현재 '/a'라는 경로만 존재한다면 '/a'폴더 하위에 'b'폴더를 생성하고
        'b'폴더 하위에 'c'폴더를 생성하여 최종적으로 '/a/b/c' 경로가 존재하도록 만든다.
        ```
+    * 현재 위치 가져오기
+        ```
+        import os
+        print(os.getcwd())
+        print(os.path.dirname(os.path.realpath(__file__)) )
+        ```
+    
 * Pandas의 replace() 함수
     * 특정 값을 바꿀 때 사용한다. ffill 메서드를 이용하면 특정 값을 이전의 값으로 변경하고, bfill 메서드를 이용하면 특정 값을 이후의 값으로 값으로 변경할 때 사용한다.
     ```
