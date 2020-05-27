@@ -435,8 +435,31 @@ _ETC_
         * `conda env export --name YOUR_ENV_NAME > environment.yml`
     * 추출한 가상환경으로 새로운 가상환경 생성
         * `conda env create -f ./environment.yml`
+<br>
 
+* 파이썬에서 GPU 정보와 사용 유무 확인하기
+    ```
+    import torch
+    print(torch.cuda.is_available())
+    print(torch.cuda.device_count())
+    print(torch.cuda.get_device_name(torch.cuda.current_device()))
+    ```
+    
+    ```
+    # confirm TensorFlow sees the GPU
+    from tensorflow.python.client import device_lib
+    assert 'GPU' in str(device_lib.list_local_devices())
 
+    # confirm Keras sees the GPU
+    from keras import backend
+    assert len(backend.tensorflow_backend._get_available_gpus()) > 0
+
+    # confirm PyTorch sees the GPU
+    from torch import cuda
+    assert cuda.is_available()
+    assert cuda.device_count() > 0
+    print(cuda.get_device_name(cuda.current_device()))
+    ```
 
 # Linux Command
 * 사용 tool MobaXterm
@@ -501,7 +524,6 @@ _ETC_
 
 # 파이썬 코드로 R 스크립트 실행하기
 * code
-    * 
     ```
     import subprocess
 
@@ -509,17 +531,6 @@ _ETC_
     script_path = os.path.join(user_home,'scripts','default_model.R')
 
     os.system(script_path)
-    ```
-
-각종 오류
-===
-
-* locale 설정  
-    * Tensorflow 돌리려는데 다음과 같은 에러가 발생.
-    * locale.Error: unsupported locale setting
-    ```
-    locale.setlocale(locale.LC_ALL, 'ko_KR.UTF-8') 인 기존 코드를 다음과 같이 변경
-    locale.setlocale(locale.LC_ALL, '')
     ```
 
 알아두면 좋은 상식
