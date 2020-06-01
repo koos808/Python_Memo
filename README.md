@@ -173,6 +173,33 @@ _함수_
         print(os.getcwd())
         print(os.path.dirname(os.path.realpath(__file__)) )
         ```
+    * 현재 디렉토리에 있는 모든 파일(디렉토리) 리스트 가져오기
+        ```
+        path = "./"
+        file_list = os.listdir(path)
+        ```
+        * ".py" 확장자를 가진 파일의 리스트 가져오기
+            ```
+            # Use os.listdir()
+            path = "./"
+            file_list = os.listdir(path)
+            file_list_py = [file for file in file_list if file.endswith(".py")]
+
+            print ("file_list_py: {}".format(file_list_py))
+            ```
+
+            ```
+            # Use glob
+            import glob
+            path = "./*"
+            file_list = glob.glob(path)
+            file_list_py = [file for file in file_list if file.endswith(".py")]
+
+            print ("file_list_py: {}".format(file_list_py))
+            ```
+        * "os.listdir"과 "glob.glob"의 차이점
+            * os.listdir을 사용한 경우는 해당 디렉토리의 파일명만 가져왔지만, glob으로 파일 리스트를 가져올 경우에는 검색시 사용했던 경로명까지 전부 가져온다. 예를들어 현재 경로가 아닌 특정 경로의 파일을 찾는다면 다음과 같은 차이가 보일것이다.
+        
     
 * Pandas의 replace() 함수
     * 특정 값을 바꿀 때 사용한다. ffill 메서드를 이용하면 특정 값을 이전의 값으로 변경하고, bfill 메서드를 이용하면 특정 값을 이후의 값으로 값으로 변경할 때 사용한다.
@@ -520,6 +547,9 @@ _ETC_
         * 숨김 파일 및 폴더 모두 확인 : `ls -ahl`
     * 9.파일 이름 및 위치 변경
         * `mv preprocess.R preprocess2.R/`
+    * cd
+        * 최상위 경로 이동 : `cd /`
+        * 이전 경로 이동 : `cd -`
 * 이 페이지 참고하면 좋음 : http://rogerdudler.github.io/git-guide/index.ko.html
 
 # 파이썬 코드로 R 스크립트 실행하기
