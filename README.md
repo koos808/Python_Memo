@@ -101,6 +101,8 @@ _함수_
     ```
     int(0.5) = 1       int(1.3)=1
     ```
+
+### Numpy Function
 * np.random.rand() : Numpy의 random 모듈은 랜덤 값 생성을 위한 rand() 함수를 제공함.
 0에서 1사이의 값을 생성하여 반환함. randint(low, high=None) 함수는 high를 넣지 않은 경우에는 0에서 low사이의 정수를 랜덤으로 생성하고 high를 넣은 경우 low에서 high 사이의 정수를 생성함.
 
@@ -129,6 +131,14 @@ _함수_
         ex) np.full(3,1) -> [1,1,1]           np.full((2,2), 0.5) -> [ [0.5,0.5], [0.5,0.5]] 를 반환.
         ```
     * 주의할 점은 다차원 배열의 경우 그 형태를 튜플로 넘겨줘야 한다.
+* Numpy의 타입 확인 및 변경
+    * 타입 확인 : `data.dtype()`
+    * 타입 변경 : `data = data.astype(np.int32)`
+* Numpy 배열 합치기
+    * `np.concatenate((data1, data2), axis = None)`
+    * `np.concatenate((data1, data2.T), axis = 0)`
+    * `np.concatenate((data1, data2), axis = 0)`
+
 * Numpy의 around() 함수 
     * 반올림 함수
       * `np.round(data, 2)` or `np.around(data, 2)` 사용
