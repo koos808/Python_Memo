@@ -138,7 +138,8 @@ _함수_
     * `np.concatenate((data1, data2), axis = None)`
     * `np.concatenate((data1, data2.T), axis = 0)`
     * `np.concatenate((data1, data2), axis = 0)`
-
+* Numpy 배열 길이 확인 방법
+    * `data.shape` or `len(data)`
 * Numpy의 around() 함수 
     * 반올림 함수
       * `np.round(data, 2)` or `np.around(data, 2)` 사용
