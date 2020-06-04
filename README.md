@@ -134,15 +134,21 @@ _함수_
 * Numpy의 타입 확인 및 변경
     * 타입 확인 : `data.dtype()`
     * 타입 변경 : `data = data.astype(np.int32)`
-* Numpy 배열 합치기
+* Numpy 배열 합치기 & append로 배열 추가하기 
     * `np.concatenate((data1, data2), axis = None)`
     * `np.concatenate((data1, data2.T), axis = 0)`
     * `np.concatenate((data1, data2), axis = 0)`
+    * `np.append(a1, a2)`
 * Numpy 배열 길이 확인 방법
     * `data.shape` or `len(data)`
 * Numpy의 around() 함수 
     * 반올림 함수
       * `np.round(data, 2)` or `np.around(data, 2)` 사용
+
+* data suffle(섞기)
+    * `from sklearn.utils import shuffle`
+    * x, y에 각각 셔플된 값 넣기 : `x, y = shuffle(img_data, Y, random_state = 202006)`
+    * `y = shuffle(Y, random_state = 202006)`
 
 * Matplotlib의 subplots() 함수
     * 여러 Axes로 구성된 Figure를 생성할 때 효과적이다. 인자로 들어가는 nrows는 행 개수,ncols는 열 개수를 의미한다. nrow가 2이고 ncol이 3이라면 2x3 Axes, 즉 6개의 Axes로 구성된 Figure가 생성된다.
@@ -573,6 +579,16 @@ _ETC_
 
     os.system(script_path)
     ```
+
+Deep learning 관련 함수
+===
+* label categorical 범주형 변환
+    * `from keras.utils import np_utils`
+    * `Y = np_utils.to_categorical(label, num_classes)`
+* train test dataset split
+    * `from sklearn.model_selection import train_test_split`
+    * `X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.15, random_state=2)`
+
 
 알아두면 좋은 상식
 ===
