@@ -144,6 +144,25 @@ _함수_
 * Numpy의 around() 함수 
     * 반올림 함수
       * `np.round(data, 2)` or `np.around(data, 2)` 사용
+* Numpy 배열에서 원소(value) 몇 개씩 존재하는지 count(R에서의 table)
+    ```
+    # example 1
+    from collections import Counter
+    Counter(jaffe_Y)
+
+    # example 2
+    result = Counter(jaffe_Y)
+    print(result)
+    for key in result:
+        print(key, result[key])
+
+    # example 3 : 키 없이 카운트 한 값만 알아내고 싶을 때 사용
+    result = Counter(jaffe_Y).values()
+    print(result)
+    ```
+* python에서 문자를 출력할 때 raw로 출력하기
+    * `print('문자를 출력할 때 \t \n 같은 이스케이프 문자가 미출력될 때 사용한다.')`
+    * `print(r'문자를 출력할 때 \t \n 같은 이스케이프 문자가 미출력될 때 사용한다.')` => raw 문자 출력
 
 * data suffle(섞기)
     * `from sklearn.utils import shuffle`
