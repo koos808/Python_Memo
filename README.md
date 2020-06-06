@@ -160,6 +160,15 @@ _함수_
     result = Counter(jaffe_Y).values()
     print(result)
     ```
+* Numpy 배열에서 어떤 값이 중복됐는지 확인하는 방법
+    ```
+    # 1. 중복된 값만 추출
+    a = np.array([1, 2, 1, 3, 3, 3, 0])
+    [item for item, count in Counter(a).items() if count > 1]
+    
+    # 2. 유니크한 값만 가져오기
+    np.unique(data)
+    ```
 * python에서 문자를 출력할 때 raw로 출력하기
     * `print('문자를 출력할 때 \t \n 같은 이스케이프 문자가 미출력될 때 사용한다.')`
     * `print(r'문자를 출력할 때 \t \n 같은 이스케이프 문자가 미출력될 때 사용한다.')` => raw 문자 출력
