@@ -156,19 +156,43 @@ _함수_
     for key in result:
         print(key, result[key])
 
-    # example 3 : 키 없이 카운트 한 값만 알아내고 싶을 때 사용
+    # example 3
+    import numpy as np
+    x = np.array([1,1,1,2,2,2,5,25,1,1])
+    y = np.bincount(x)
+    ii = np.nonzero(y)[0]
+    Zip(ii,y[ii]) # [(1, 5), (2, 3), (5, 1), (25, 1)]
+
+    # example 4 : 키 없이 카운트 한 값만 알아내고 싶을 때 사용
     result = Counter(jaffe_Y).values()
     print(result)
     ```
 * Numpy 배열에서 어떤 값이 중복됐는지 확인하는 방법
     ```
     # 1. 중복된 값만 추출
+    from collections import Counter
     a = np.array([1, 2, 1, 3, 3, 3, 0])
     [item for item, count in Counter(a).items() if count > 1]
-    
-    # 2. 유니크한 값만 가져오기
+
+    # 2. 중복된 값의 인덱스 추출
+    u, c = np.unique(a, return_counts=True)
+    dup = u[c > 1]
+
+    # 3. 유니크한 값만 가져오기
     np.unique(data)
     ```
+    * 2D, 3D... array에서 중복된 값 제거하고 가져오는 방법
+        ```
+        L = [np.array([1, 2, 3]), np.array([]), np.array([3, 2, 1]),
+            np.array([1, 3, 2]), np.array([1, 2, 3]), np.array([1, 3, 2]),
+            np.array([]), np.array([]), np.array([1, 2, 3]),np.array([7,7,7])]
+        L
+        `np.unique(L, axis=0)`
+        ```
+        * 참고 : https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.unique.html
+    * 응용 : A 변수에서 중복된 데이터 제외한 인덱스를 가져와 B 변수 select
+        * `u, indices = np.unique(fer2013_X, axis=0, return_index = True)` -> `fer2013_label = fer2013_label[indices]`
+
 * python에서 문자를 출력할 때 raw로 출력하기
     * `print('문자를 출력할 때 \t \n 같은 이스케이프 문자가 미출력될 때 사용한다.')`
     * `print(r'문자를 출력할 때 \t \n 같은 이스케이프 문자가 미출력될 때 사용한다.')` => raw 문자 출력
