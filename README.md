@@ -306,6 +306,9 @@ _함수_
         * 마지막에 다시 set 자료형을 리스트로 만들어 주기 -> `list('set자료형이름')`
     * 특정 집합, 요소에 해당(포함)하는 데이터만 추출
         * `all_data[all_data.image_id.isin(train_idx)]` : all_data 데이터에서 image_id 열 중에 train_idx 리스트에 포함된 요소만 추출.
+    * data.frame(데이터 프레임)에서 조건에 해당하는 행만 추출
+        * df에서 image_id가 P_002893.jpg인 행만 추출 :  `df[df['image_id']=='P_002893.jpg']`
+
 * 오름차순, 내림차순
     * `변수이름.sort()` or `sorted(변수이름,key=,reverse=)` 둘중 하나 사용
         * ```
@@ -335,6 +338,15 @@ _함수_
     # 2. Nested List Comprehension
     filteredList = [x for x in originalList if x%2==0]
     ```
+* image(이미지)에서 원하는 부분 cropping(잘라내기)
+    ```
+    def im_trim (img): #함수로 만든다
+    for (x,y,w,h) in kkk:
+        img_trim = img[y:y+h, x:x+w] 
+        cv2.imwrite('test_cropping_data/' + 'test_image.jpg',img_trim) 
+    return img_trim 
+    ```
+
 
 <br />
 문자열 관련 처리 및 함수
@@ -426,6 +438,13 @@ _함수_
             ```
     * 리스트에서 문자열 인덱스 찾기
       * `["hello","python","world","!"].index("world")`
+* python list(리스트)에서 특수문자 및  제거
+    * 모든 특수문자 제거 : `[re.sub('[^a-zA-Z0-9]+', '', _) for _ in list_name]`
+    * `(`와 `)`만 제거 : `[re.sub('[()]', '', _) for _ in test]`
+    * 특정 문자 제거 : `[re.sub('[()]+', '', _) for _ in list_name]`
+* python list or text에서 split하기
+    *  `df.iloc[1,1].split(',')`
+
 <br />
 
 크롤링(Crawling)
@@ -573,7 +592,7 @@ _ETC_
         * ` cp -R /home/desktop/folder/file/. /home/desktop/folder_2 `
 * Process 종료
     * kill -9 35221(해당 프로세스 name) or `ctrl + Shift + C`
-    
+
 # 리눅스 GIT Command
 * git clone(복사) : cd로 원하는 폴더 이동 후 Command 입력
     * ` git clone  http://----.git(주소 복사) commit/ ` 주소의 git을 commit 폴더로 복사
