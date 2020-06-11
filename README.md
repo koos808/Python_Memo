@@ -573,6 +573,7 @@ _ETC_
         * ` cp -R /home/desktop/folder/file/. /home/desktop/folder_2 `
 * Process 종료
     * kill -9 35221(해당 프로세스 name) or `ctrl + Shift + C`
+    
 # 리눅스 GIT Command
 * git clone(복사) : cd로 원하는 폴더 이동 후 Command 입력
     * ` git clone  http://----.git(주소 복사) commit/ ` 주소의 git을 commit 폴더로 복사
