@@ -89,6 +89,9 @@ shares.columns=' '.join(shares.columns.values).split()
 * 파이썬 제곱(**), 나머지(%)
   * ex1 : `print(2 ** 10)` # 2의 10제곱 => 1024
   * ex2 : `print(10 % 2)` # 10을 2로 나누었을 때의 나머지 => 0
+* 문자 숫자 type 변환
+    * 문자열로 변환 : `str(test)` or `repr(Test)`
+    * 숫자로 변환 : `int(test)`
 
 _함수_
 ===
@@ -346,7 +349,6 @@ _함수_
         cv2.imwrite('test_cropping_data/' + 'test_image.jpg',img_trim) 
     return img_trim 
     ```
-
 
 <br />
 문자열 관련 처리 및 함수
