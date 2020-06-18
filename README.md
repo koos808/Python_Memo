@@ -426,6 +426,8 @@ _함수_
                   match_list.append(word)
           match_list
           ```
+    * sample 2 : 리스트 내에 특정 문자있는지 확인하기
+        * `'My_Data' in data_list` : data_list라는 list안에 'My_Data' 문자가 들어 있으면 TRUE, 없으면 False를 내뱉는다.
     * in을 이용한 특정 문자열 검색
         * ```
             match_list = list()
