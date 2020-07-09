@@ -726,29 +726,40 @@ Deep learning 관련 함수
 
 * 우분투 방화벽 설정 : Ubuntu ufw setting 
     * 설정 환경 : ubuntu 16.04
-    * 1. 방화벽 활성화
-        - sudo ufw enable # UFW 활성화
-        - sudo ufw disable # UFW 비활성화
-        - sudo ufw status verbose #UFW 상태 확인
-        - sudo ufw rest # 방화벽 초기화
+    * 0. 방화벽 활성화 -> 기본 문법
+        - `sudo ufw enable` # UFW 활성화
+        - `sudo ufw disable` # UFW 비활성화
+        - `sudo ufw status verbose` #UFW 상태 확인
+        - `sudo ufw rest` # 방화벽 초기화
+    * 1. UFW 설치
+        * `sudo apt-get update` : 선택사항
+        * `sudo apt-get upgrade` : 선택사항
+        * `sudo apt-get install ufw` : ufw 설치
     * 2. 특정 IP만 허용
         - sudo ufw allow form xxx.xxx.xxx.xxx to any port 22 proto tcp # IP영역대 22번 포트 접근 가능
-        # 이것 사용함.
-        - sudo ufw allow from xxx.xxx.xxx.xxx[IP]
+        - `sudo ufw allow from xxx.xxx.xxx.xxx[IP]` # 이것 사용함.
     * 3. 방화벽 rule 삭제
-        - sudo ufw delete 2 #[sudo ufw status 에서 확인 후 원하는 숫자(rule) 입력]
-
+        - `sudo ufw delete 2` #[sudo ufw status 에서 확인 후 원하는 숫자(rule) 입력]
     * 4. Ubuntu 서버 부팅시 ufw 자동 활성화 설정
-        - sudo update-rc.d -f ufw defaults
-
+        - `sudo update-rc.d -f ufw defaults`
     * 5. [방화벽 설정 사항]
         - 방화벽 로그 기록 활성화
         - 재부팅 시 방화벽 자동 활성화
         - 특정 IP만 접속 가능하도록 설정
-
     * 6. [ALLOW IP]
         - xxx.xxx.xxx.xx1
         - xxx.xxx.xxx.xx2
         - xxx.xxx.xxx.xx3
     * 7. [필수]
-        - 재부팅 할 때 방화벽 활성화 되어 있는지 확인할 것 명령어는 'sudo ufw status verbose' 
+        - 재부팅 할 때 방화벽 활성화 되어 있는지 확인할 것 명령어는 `sudo ufw status verbose` 
+
+* 우분투 User(유저) 추가 및 sudo 권한 부여
+    * `sudo adduser user_name`
+        * Enter new UNIX password : 사용자 비밀번호 입력
+        * Retype new UNIX password : 사용자 비밀번호 재입력
+    * sudo 권한 부여
+        * `sudo visudo` 입력
+        * Members of the admin group may gain root privileges에 아래 내용 추가
+        * `%user_name ALL=(ALL) ALL` : user 이름 추가
+        * ctrl+x -> Y -> File Name to Write: /etc/sudoers.tmp 에서 `File Name to Write: /etc/sudoers`로 변경후 엔터 -> Y
+        
