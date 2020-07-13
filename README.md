@@ -272,15 +272,10 @@ _함수_
         * "os.listdir"과 "glob.glob"의 차이점
             * `os.listdir`을 사용한 경우는 해당 디렉토리의 파일명만 가져왔지만, `glob`로 파일 리스트를 가져올 경우에는 검색시 사용했던 경로명까지 전부 가져온다. 예를들어 현재 경로가 아닌 특정 경로의 파일을 찾는다면 다음과 같은 차이가 보일것이다.
         
-    
-* Pandas의 replace() 함수
-    * 특정 값을 바꿀 때 사용한다. ffill 메서드를 이용하면 특정 값을 이전의 값으로 변경하고, bfill 메서드를 이용하면 특정 값을 이후의 값으로 값으로 변경할 때 사용한다.
-    ```
-    series=[1,3,0,5,7] 일 때,
-    series.replace(to_replace=0, method='ffill') => 결과 : [1,3,3,5,7]
-    series.replace(to_replace=0, method='bfill') => 결과 : [1,3,5,5,7]
-    ```
 * 자주 쓰는 Pandas 함수
+    * csv 불러오기, 저장
+        * `pd.read_csv('경로/data.csv')`
+        * `dataframe.to_csv("저장할 csv파일 경로", header=False, index=False)`
     * 열이름 가져오는 가장 간단한 코드
         * `df.columns.values.tolist()` or `list(df.columns)`
     * 행과 열 개수 가져오기
@@ -288,6 +283,8 @@ _함수_
         * 열 : `df.shape[1]`, `len(df.columns)`
     * 변수 타입 확인
         * `type()`
+    * 특정 컬럼의 데이터 타입 변경
+        * `df = df.astype({'col1': 'int'})`
     * 특정 열 제외하고 가져오기
         * `colsum=[1,3,9]` or `colsum=arrange(0,40)`
         * 이후 `df.iloc[:, ~df.columns.isin(df.columns[colsnum])] `
@@ -298,6 +295,13 @@ _함수_
         * rename the existing DataFrame (rather than creating a copy)
             * `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)`
             or `df.rename({'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True,axis=1)`
+    * Pandas의 replace() 함수
+        * 특정 값을 바꿀 때 사용한다. ffill 메서드를 이용하면 특정 값을 이전의 값으로 변경하고, bfill 메서드를 이용하면 특정 값을 이후의 값으로 값으로 변경할 때 사용한다.
+        ```
+        series=[1,3,0,5,7] 일 때,
+        series.replace(to_replace=0, method='ffill') => 결과 : [1,3,3,5,7]
+        series.replace(to_replace=0, method='bfill') => 결과 : [1,3,5,5,7]
+        ```
     * set 자료형을 이용하면 리스트의 차집합, 합집합, 교집합을 구할 수 있다.
         * ```
           s1 = set([1, 2, 3, 4, 5, 6])
