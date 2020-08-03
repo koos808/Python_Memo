@@ -601,6 +601,8 @@ _ETC_
         * ` cp -R /home/desktop/folder/file/. /home/desktop/folder_2 `
 * Process 종료
     * kill -9 35221(해당 프로세스 name) or `ctrl + Shift + C`
+* nvidia-smi 주기적으로 보기
+    * `watch -d -n 1 nvidia-smi`
 
 # 리눅스 GIT Command
 * git clone(복사) : cd로 원하는 폴더 이동 후 Command 입력
