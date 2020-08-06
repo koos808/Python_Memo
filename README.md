@@ -93,6 +93,37 @@ shares.columns=' '.join(shares.columns.values).split()
     * 문자열로 변환 : `str(test)` or `repr(Test)`
     * 숫자로 변환 : `int(test)`
 
+* 파일명 일괄 변경 및 문자열 split(분할)
+    * 문자열로 구성된 리스트에서 "jpg" 기준으로 스플릿하고 첫번째 원소 가져오기
+        * `[i.split('jpg')[0] for i in dn]` : 'dn'은 list
+    * 그냥 문자열(dn의 0번째 원소)에서 'jpg'기준으로 split하기
+        * `dn[0].split('jpg')[0]`
+    * 문자열 리스트에 'jpg' 붙혀주기
+        * `[i + 'jpg' for i in dn2]`
+    * 파일명 한번에 일괄 변경하기
+        ```
+        data_path = './Augmentation images/aug_class2'
+        files_list = os.listdir(data_path)
+
+        # 파일명에 번호 추가하기 (중복 방지)
+        count = 0 
+        name = 'slide ' 
+        for file in files_list: 
+            name = file
+            # 파이썬 실행파일명은 변경하지 않음 
+            new_name = file.split('.jpg')[0] + '_' + str(count) +'.jpg'
+            #print(new_name) 
+
+            # name과 new_name path 붙혀주기
+            name = os.path.join(data_path, name)
+            new_name = os.path.join(data_path, new_name)
+
+            # 파일명 변경하기
+            os.rename(name,new_name) 
+            count += 1
+
+        ```
+
 _함수_
 ===
 * del() : 변수 삭제
