@@ -276,13 +276,13 @@ _함수_
     * x, y에 각각 셔플된 값 넣기 : `x, y = shuffle(img_data, Y, random_state = 202006)`
     * `y = shuffle(Y, random_state = 202006)`
 
+
+Matplotlib, plt 등 시각화 관련
+===
+
 * Matplotlib의 subplots() 함수
     * 여러 Axes로 구성된 Figure를 생성할 때 효과적이다. 인자로 들어가는 nrows는 행 개수,ncols는 열 개수를 의미한다. nrow가 2이고 ncol이 3이라면 2x3 Axes, 즉 6개의 Axes로 구성된 Figure가 생성된다.
-* zip() 함수
-    * 파이썬 내장 함수로 두 개의 배열에서 같은 인덱스의 요소를 순서대로 묶어준다.
-        ```
-        zip([1,2,3],[4,5,6]) -> [(1,4),(2,5),(3,6)] 
-        ```
+
 * Matplotlib()의 axvline() 함수
     * x축 위치에서 세로로 선을 긋는 함수이다. 이선의 색깔은 color 인자로, 선의 투명도를 alpha로 정해줄 수 있다.
 * Matplotlib()의 plot() 함수
@@ -300,6 +300,26 @@ _함수_
     alpha 옵션으로 투명도를 조정할 수 있다.
 * Matplotlib()의 tight_layout() 함수
     * Fiqure의 크기에 알맞게 내부 차트들의 크기를 조정해 준다.
+
+* pyplot, matplotlib, plt 에서 한글 깨짐 문제 해결법
+  * 참고 : https://wotres.tistory.com/entry/pyplot-%EC%97%90%EC%84%9C-%ED%95%9C%EA%B8%80-%EA%B9%A8%EC%A7%90-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%EB%B2%95
+  * 1. 다음 주소에서 나눔 고딕 폰트를 저장한다. https://blog.kakaocdn.net/dn/bvLRDj/btqvqMMgcfz/HgOxKyJtQJLJJHpYIQXOk0/NanumBarunGothic.ttf?attach=1&knm=tfile.ttf
+  * 2. 다음과 같이 폰트 path를 지정하고 옵션으로 넣어주면 된다.
+        ```
+        import matplotlib.pyplot as plt 
+        import matplotlib.font_manager as fm 
+        path = 'NanumBarunGothic.ttf' 
+        fontprop = fm.FontProperties(fname = path, size = 18) 
+        plt.ylabel('세로축', fontproperties = fontprop) 
+        plt.title('가로축', fontproperties = fontprop) 
+        plt.show()
+        ```
+
+* zip() 함수
+    * 파이썬 내장 함수로 두 개의 배열에서 같은 인덱스의 요소를 순서대로 묶어준다.
+        ```
+        zip([1,2,3],[4,5,6]) -> [(1,4),(2,5),(3,6)] 
+        ```
 
 * os.path 모듈
     * os.path.join(path) 함수는 path로 경로를 설정한다.
