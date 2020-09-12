@@ -93,6 +93,20 @@ shares.columns=' '.join(shares.columns.values).split()
     * 문자열로 변환 : `str(test)` or `repr(Test)`
     * 숫자로 변환 : `int(test)`
 
+* 각 array(ex.2차원 배열)에서 max값만 추출하기
+    ```
+    numbers = [0, 0, 1, 0, 0, 1], [0, 1, 0, 2, 0, 0], [0, 0, 2, 0, 0, 1], [0, 1, 0, 3, 0, 0], [0, 0, 0, 0, 4, 0]
+
+    >>> map(max, numbers)
+    <map object at 0x0000018E8FA237F0>
+    >>> list(map(max, numbers))  # max numbers from each sublist
+    [1, 2, 2, 3, 4]
+
+    >>> max(map(max, numbers))  # max of those max-numbers
+    4   
+    ```
+
+
 * 파일명 일괄 변경 및 문자열 split(분할)
     * 문자열로 구성된 리스트에서 "jpg" 기준으로 스플릿하고 첫번째 원소 가져오기
         * `[i.split('jpg')[0] for i in dn]` : 'dn'은 list
