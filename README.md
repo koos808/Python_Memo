@@ -631,10 +631,33 @@ _ETC_
   df = pd.read_excel("test.xlsx")
    ```
 * 폴더 없으면 생성하기
-  * ```
-    if not os.path.exists(model_object_file_path):
-    os.makedirs(model_object_file_path)
-    ```
+    * 기본 코드
+        ```
+        if not os.path.exists(model_object_file_path):
+        os.makedirs(model_object_file_path)
+        ```
+    * 추가로 weight와 output path 시간단위로 폴더만들어서 저장하기
+        ```
+        # weight, output images path 설정 및 folder 생성
+        output_save_folder_path = os.getcwd() + '/detect_output/'
+        output_path = os.path.join(output_save_folder_path, time.strftime('%Y%m%d_%H_%M', time.localtime(time.time())))
+
+        weight_save_folder_path = os.getcwd() + '/detect_weights/'
+        weight_path = os.path.join(weight_save_folder_path, time.strftime('%Y%m%d_%H_%M', time.localtime(time.time())))
+
+        if not os.path.exists(output_save_folder_path):
+            os.mkdir(output_save_folder_path)
+        if not os.path.exists(output_path):
+            os.mkdir(output_path)    
+        if not os.path.exists(weight_save_folder_path):
+            os.mkdir(weight_save_folder_path)
+        if not os.path.exists(weight_path):
+            os.mkdir(weight_path)
+
+        ```
+
+
+
 * jupyter notebook에서 여러 output을 한 번에 출력하기
   * ```
     from IPython.core.interactiveshell import InteractiveShell
