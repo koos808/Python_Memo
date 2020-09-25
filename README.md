@@ -407,6 +407,25 @@ Matplotlib, plt 등 시각화 관련
         series.replace(to_replace=0, method='ffill') => 결과 : [1,3,3,5,7]
         series.replace(to_replace=0, method='bfill') => 결과 : [1,3,5,5,7]
         ```
+    * 열 추가 하기
+      * pandas에서 열 추가하는 방법은 4가지 정도가 있음.
+        * Pandas에 새로운 열을 추가하는 `[]연산자 메소드`
+        * Pandas에 새 열을 추가하는 `df.insert() 메소드`
+        * Pandas에 새로운 열을 추가하는 `df.assign() 메소드`
+        * Pandas에 새로운 열을 추가하는 `df.loc() 메소드`
+
+      * 새로운 열 하나의 값으로 추가 하려면?
+        * ex) `df['new_col'] = 100`
+      * 기존 열을 이용해서 여러개 열 한번에 추가할 경우
+        * ex) 
+            ```
+            # 'DATE' 열을 가져와서 연도, 월, 일로 분리하고, 이들을 각각 'YEAR', 'MONTH', 'DAY' 열로 추가.
+            df_new = df.assign(YEAR=lambda x: x['DATE'].str[0:4],
+                                    MONTH=lambda x: x['DATE'].str[4:6],
+                                    DAY=lambda x: x['DATE'].str[6:])
+                                    
+            ```
+
     * set 자료형을 이용하면 리스트의 차집합, 합집합, 교집합을 구할 수 있다.
         * ```
           s1 = set([1, 2, 3, 4, 5, 6])
