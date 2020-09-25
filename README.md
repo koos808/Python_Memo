@@ -409,11 +409,47 @@ Matplotlib, plt 등 시각화 관련
         ```
     * 열 추가 하기
       * pandas에서 열 추가하는 방법은 4가지 정도가 있음.
+      * (참고 : https://www.delftstack.com/ko/howto/python-pandas/how-to-add-new-column-to-existing-dataframe-in-python-pandas/) 
         * Pandas에 새로운 열을 추가하는 `[]연산자 메소드`
         * Pandas에 새 열을 추가하는 `df.insert() 메소드`
         * Pandas에 새로운 열을 추가하는 `df.assign() 메소드`
         * Pandas에 새로운 열을 추가하는 `df.loc() 메소드`
+    <br/> <br/>
+      * Example Data
+        ``` 
+        import pandas as pd
+        data = [ ['Ali', 'Azmat','30'], ['Sharukh', 'Khan', '40'], ['Linus', 'Torvalds', '70'] ]
+        df = pd.DataFrame(data,columns=['First','Last','Age']) 
+        ``` 
+      * 1) Pandas에 새로운 열을 추가하는 `[]연산자 메소드`
+        ``` 
+        city = ['Lahore','Dehli','New York']
+        df['city'] = city
+        print(df)
+        ```
+      * 2) Pandas에 새 열을 추가하는 `df.insert() 메소드`
+        * 특정 인덱스에 새 열을 추가하려면df.insert()함수를 사용할 수 있습니다. df.insert() 함수의 첫 번째 매개 변수는 0부터 시작하는 삽입 색인입니다.
+        ``` 
+        df.insert(3,"city",['Lahore','Dehli','New York'],True)
+        print(df)   
+        ```
+      * 3) Pandas에 새로운 열을 추가하는 `df.assign() 메소드`
+        ``` 
+        # 한 열을 추가할 경우
+        df = df.assign(city = ['Lahore','Dehli','New York'])
+        print(df)
 
+        # 여러 열을 추가할 경우
+        df = df.assign(city = ['Lahore','Dehli','New York'], 
+               score = [20,30,40])
+        print(df)
+        ```
+      * 4) Pandas에 새로운 열을 추가하는 `df.loc() 메소드`
+        ``` 
+        df.loc[:,'city'] = ['Lahore','Dehli','New York']
+        print(df)
+        ```
+    <br/> 
       * 새로운 열 하나의 값으로 추가 하려면?
         * ex) `df['new_col'] = 100`
       * 기존 열을 이용해서 여러개 열 한번에 추가할 경우
@@ -426,19 +462,20 @@ Matplotlib, plt 등 시각화 관련
                                     
             ```
 
-    * set 자료형을 이용하면 리스트의 차집합, 합집합, 교집합을 구할 수 있다.
-        * ```
-          s1 = set([1, 2, 3, 4, 5, 6])
-          s2 = set([4, 5, 6, 7, 8, 9])
-          ```
-          - 합집합 : `s1 | s2` or `s1.union(s2)`
-          - 차집합 : `s1 - s2` or `s1.difference(s2)`
-          - 교집합 : `s1 & s2` or `s1.intersection(s2)`
-        * 마지막에 다시 set 자료형을 리스트로 만들어 주기 -> `list('set자료형이름')`
     * 특정 집합, 요소에 해당(포함)하는 데이터만 추출
         * `all_data[all_data.image_id.isin(train_idx)]` : all_data 데이터에서 image_id 열 중에 train_idx 리스트에 포함된 요소만 추출.
     * data.frame(데이터 프레임)에서 조건에 해당하는 행만 추출
         * df에서 image_id가 P_002893.jpg인 행만 추출 :  `df[df['image_id']=='P_002893.jpg']`
+
+* set 자료형을 이용하면 리스트의 차집합, 합집합, 교집합을 구할 수 있다.
+    * ```
+      s1 = set([1, 2, 3, 4, 5, 6])
+      s2 = set([4, 5, 6, 7, 8, 9])
+      ```
+      - 합집합 : `s1 | s2` or `s1.union(s2)`
+      - 차집합 : `s1 - s2` or `s1.difference(s2)`
+      - 교집합 : `s1 & s2` or `s1.intersection(s2)`
+    * 마지막에 다시 set 자료형을 리스트로 만들어 주기 -> `list('set자료형이름')`
 
 * 오름차순, 내림차순
     * `변수이름.sort()` or `sorted(변수이름,key=,reverse=)` 둘중 하나 사용
