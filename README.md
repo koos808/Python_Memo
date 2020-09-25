@@ -461,7 +461,8 @@ Matplotlib, plt 등 시각화 관련
                                     DAY=lambda x: x['DATE'].str[6:])
                                     
             ```
-
+    * 열 최대값 최소값, 중간값 등 한번에 기술적 요약 보기(R에서의 summary)
+      * `df.describe()`
     * 특정 집합, 요소에 해당(포함)하는 데이터만 추출
         * `all_data[all_data.image_id.isin(train_idx)]` : all_data 데이터에서 image_id 열 중에 train_idx 리스트에 포함된 요소만 추출.
     * data.frame(데이터 프레임)에서 조건에 해당하는 행만 추출
