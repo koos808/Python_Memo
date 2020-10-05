@@ -395,6 +395,14 @@ Matplotlib, plt 등 시각화 관련
         * 이후 `df.iloc[:, ~df.columns.isin(df.columns[colsnum])] `
     * 열 선택
         * `ind = ['a', 'b', 'c']` -> `data = data[ind]`
+    * 열 삭제 여러가지 방법
+        * `del`
+          * `del df['C']`
+        * `drop`
+          * `df.drop(['B', 'E'], axis='columns', inplace=True)`
+          * df = df.drop(['B', 'E'], axis=1) #without the option inplace=True
+        * 열 번호에 `drop` 사용
+          * `df.drop(df.columns[[0, 2]], axis='columns')` 
     * 변경하고 싶은 열 이름 변경
         * df = `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'})`
         * rename the existing DataFrame (rather than creating a copy)
