@@ -720,8 +720,12 @@ _ETC_
             os.mkdir(weight_path)
 
         ```
-
-
+* 주피터노트북에서 파이썬 버전확인하는 방법
+    ```
+    import sys
+    print("--sys.version—")
+    print(sys.version)
+    ```
 
 * jupyter notebook에서 여러 output을 한 번에 출력하기
   * ```
