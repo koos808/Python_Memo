@@ -740,6 +740,7 @@ _ETC_
         * `conda create -n my_python_env`
     * 가상환경 생성 응용
         * `conda create --name YOUR_ENV_NAME python=3.6.5 tensorflow keras`
+        * `conda create --name YOUR_ENV_NAME python=3.6 tensorflow keras-gpu`
     * 버전 확인
         * `conda --version`
     * 가상환경 업데이트
