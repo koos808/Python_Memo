@@ -615,6 +615,7 @@ Matplotlib, plt 등 시각화 관련
         * ```
             [word for word in word_list if search in word]
             ```
+        * `[word for word in list_name if 'hdf5' in word]` : list_name에서 'hdf5'가 포함되어 있는 단어 추출
     * 리스트에서 문자열 인덱스 찾기
       * `["hello","python","world","!"].index("world")`
 * python list(리스트)에서 특수문자 및  제거
