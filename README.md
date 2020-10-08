@@ -408,6 +408,16 @@ Matplotlib, plt 등 시각화 관련
         * rename the existing DataFrame (rather than creating a copy)
             * `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)`
             or `df.rename({'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True,axis=1)`
+    * DataFrame(데이터 프레임) 만들기 기초적인 방법
+        ```
+        raw_data = {
+            'val_loss': hist_val_loss,
+            'val_accuracy': hist_val_accuracy,
+            'loss': hist_loss,
+            'accuracy': hist_accuracy
+            }
+        data = pd.DataFrame(raw_data)
+        ```
     * Pandas의 replace() 함수
         * 특정 값을 바꿀 때 사용한다. ffill 메서드를 이용하면 특정 값을 이전의 값으로 변경하고, bfill 메서드를 이용하면 특정 값을 이후의 값으로 값으로 변경할 때 사용한다.
         ```
@@ -515,6 +525,25 @@ Matplotlib, plt 등 시각화 관련
     # 2. Nested List Comprehension
     filteredList = [x for x in originalList if x%2==0]
     ```
+* 연속된 숫자 리스트(list) 만들기
+    ```
+    numList = list(range(1,11))
+    print(numList)
+    #[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    numList = list(range(20))
+    print(numList)
+    #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+
+    numList = list(range(1,21,2))
+    print(numList)
+    #[1, 3, 5, 7, 9, 11, 13, 15, 17, 19] 홀수만 출력
+
+    numList = list(range(2,21,2))
+    print(numList)
+    #[2, 4, 6, 8, 10, 12, 14, 16, 18, 20] 짝수만 출력
+    ```
+
 * image(이미지)에서 원하는 부분 cropping(잘라내기)
     ```
     def im_trim (img): #함수로 만든다
