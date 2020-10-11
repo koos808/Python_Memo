@@ -996,4 +996,3 @@ Deep learning 관련 함수
         * Members of the admin group may gain root privileges에 아래 내용 추가
         * `%user_name ALL=(ALL) ALL` : user 이름 추가
         * ctrl+x -> Y -> File Name to Write: /etc/sudoers.tmp 에서 `File Name to Write: /etc/sudoers`로 변경후 엔터 -> Y
-        
