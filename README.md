@@ -901,6 +901,7 @@ Deep learning 관련 함수
     * `X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.15, random_state=2)`
 
 
+
 알아두면 좋은 상식
 ===
 
