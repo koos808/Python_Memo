@@ -910,6 +910,7 @@ Deep learning 관련 함수
     * `X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.15, random_state=2)`
 
 
+
 알아두면 좋은 상식
 ===
 
@@ -1005,4 +1006,3 @@ Deep learning 관련 함수
         * Members of the admin group may gain root privileges에 아래 내용 추가
         * `%user_name ALL=(ALL) ALL` : user 이름 추가
         * ctrl+x -> Y -> File Name to Write: /etc/sudoers.tmp 에서 `File Name to Write: /etc/sudoers`로 변경후 엔터 -> Y
-        
