@@ -774,6 +774,9 @@ _ETC_
     - jupyter notebook에서는 한 cell에서 output을 마지막 하나만 출력할 수 있어 불편했다.
     - 아래 코드로 패키지를 불러와 설정을 해주면 한 cell 내에서 여러 개의 결과값을 모두 출력할 수 있게 된다.
     ```
+* jupyter notebook(주피터 노트북) : 서버 그래픽카드 지정해서 주피터노트북 열기
+  * `CUDA_VISIBLE_DEVICES==6 jupyter notebook`
+ 
 * 가상환경 관련 코드
     * 가상환경 생성 
         * `conda create -n my_python_env`
