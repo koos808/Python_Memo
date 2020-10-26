@@ -824,6 +824,14 @@ _ETC_
     assert cuda.device_count() > 0
     print(cuda.get_device_name(cuda.current_device()))
     ```
+* 이미지 로드하는 다양한 방법(image loading speed)
+  * pyvips : cv2 imread, pillow open 보다 훨씬 빠름
+    * 설치 방법 : 다른거 다해봤는데 잘 안깔렸는데 아래방법은 깔림
+    * `conda create --name vips python=3.7`
+    * `conda activate vips`
+    * `conda install --channel conda-forge pyvips`
+    * test) `python` -> `import pyvips`
+
 
 # Linux Command
 * 사용 tool MobaXterm
