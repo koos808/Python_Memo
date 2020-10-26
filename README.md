@@ -114,7 +114,9 @@ shares.columns=' '.join(shares.columns.values).split()
     >>> max(map(max, numbers))  # max of those max-numbers
     4   
     ```
-
+* array append(array list처럼 append로 쌓기)
+    * 쌓을 shape을 먼저 만들어 준다 : `stack = np.empty([0,224,224,3])`
+    * 만든 shape에다가 append해준다 : `aoa = np.append(stack,[input_img_resize],axis=0)`
 
 * 파일명 일괄 변경 및 문자열 split(분할)
     * 문자열로 구성된 리스트에서 "jpg" 기준으로 스플릿하고 첫번째 원소 가져오기
@@ -759,6 +761,45 @@ _ETC_
             os.mkdir(weight_path)
 
         ```
+* Image load 대용량 불러오는 방법
+    * 참고 : 램이 커야함
+```
+# 기본 셋팅 : 폴더 안의 label과 image(여기서는 neg, pos 2개 0,1로 지정)
+data_dir_list = ['negative', 'positive']
+total_list = []
+img_data_list=[]
+label_idx = img_idx = 0
+self_label = np.empty(0,dtype='int64')
+
+img_ncol = img_nrow = 224
+data_path = train_dir
+
+# 너무 크면 메모리가 터지므로 중간에 한번씩 비워주기
+start_time = time.time()
+for dataset in data_dir_list:
+    img_list = os.listdir(data_path + dataset)
+    
+    # make label
+    data_label = np.full(len(img_list), label_idx, dtype = 'int64')
+    self_label = np.append(self_label, data_label, axis=0)
+    label_idx += 1
+
+    for img in img_list:
+        img_idx += 1
+        input_img = cv2.imread(data_path + '/' + dataset + '/' + img )
+        input_img=cv2.cvtColor(input_img, cv2.COLOR_BGR2RGB)
+        input_img_resize = cv2.resize(input_img, (img_ncol,img_nrow) )
+        img_data_list.append(input_img_resize)
+        
+        if img_idx % 500 == 0:
+            print('{} /  {}'.format(img_idx, len(img_list)))
+            
+        if len(img_data_list) % 30000==0:
+            total_list.extend(img_data_list)
+            img_data_list = []
+print(time.time() - start_time)
+```
+
 * 주피터노트북에서 파이썬 버전확인하는 방법
     ```
     import sys
@@ -825,13 +866,14 @@ _ETC_
     print(cuda.get_device_name(cuda.current_device()))
     ```
 * 이미지 로드하는 다양한 방법(image loading speed)
+  * 참고 사이트 : `https://www.python2.net/questions-165451.htm`
   * pyvips : cv2 imread, pillow open 보다 훨씬 빠름
     * 설치 방법 : 다른거 다해봤는데 잘 안깔렸는데 아래방법은 깔림
     * `conda create --name vips python=3.7`
     * `conda activate vips`
     * `conda install --channel conda-forge pyvips`
     * test) `python` -> `import pyvips`
-
+  * 참고로 별로 안빠른 듯
 
 # Linux Command
 * 사용 tool MobaXterm
