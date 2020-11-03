@@ -114,9 +114,6 @@ shares.columns=' '.join(shares.columns.values).split()
     >>> max(map(max, numbers))  # max of those max-numbers
     4   
     ```
-* array append(array list처럼 append로 쌓기)
-    * 쌓을 shape을 먼저 만들어 준다 : `stack = np.empty([0,224,224,3])`
-    * 만든 shape에다가 append해준다 : `aoa = np.append(stack,[input_img_resize],axis=0)`
 
 * 파일명 일괄 변경 및 문자열 split(분할)
     * 문자열로 구성된 리스트에서 "jpg" 기준으로 스플릿하고 첫번째 원소 가져오기
@@ -238,6 +235,10 @@ _함수_
     * `np.concatenate((data1, data2.T), axis = 0)`
     * `np.concatenate((data1, data2), axis = 0)`
     * `np.append(a1, a2)`
+* array append(array list처럼 append로 쌓기)
+    * 쌓을 shape을 먼저 만들어 준다 : `stack = np.empty([0,224,224,3])`
+    * 만든 shape에다가 append해준다 : `aoa = np.append(stack,[input_img_resize],axis=0)`
+
 * Numpy 배열 길이 확인 방법
     * `data.shape` or `len(data)`
 * Numpy의 around() 함수 
