@@ -817,7 +817,7 @@ print(time.time() - start_time)
     - 아래 코드로 패키지를 불러와 설정을 해주면 한 cell 내에서 여러 개의 결과값을 모두 출력할 수 있게 된다.
     ```
 * jupyter notebook(주피터 노트북) : 서버 그래픽카드 지정해서 주피터노트북 열기
-  * `CUDA_VISIBLE_DEVICES==6 jupyter notebook`
+  * `CUDA_VISIBLE_DEVICES=6 jupyter notebook`
  
 * 가상환경 관련 코드
     * 가상환경 생성 
@@ -853,8 +853,26 @@ print(time.time() - start_time)
     
     ```
     # confirm TensorFlow sees the GPU
+    import tensorflow as tf
+    tf.__version__
+    
+    ## 방법 1모든 사용 가능한 GPU List 보기
     from tensorflow.python.client import device_lib
-    assert 'GPU' in str(device_lib.list_local_devices())
+    print(device_lib.list_local_devices())
+    
+    # 방법 2
+    tf.config.list_physical_devices('GPU')
+
+    # 방법 3
+    tf.config.experimental.list_physical_devices('GPU')
+
+    # Test 1
+    tf.debugging.set_log_device_placement(True)
+    # 텐서 생성
+    a = tf.constant([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
+    b = tf.constant([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]])
+    c = tf.matmul(a, b)
+    print(c)
 
     # confirm Keras sees the GPU
     from keras import backend
@@ -975,6 +993,7 @@ Deep learning 관련 함수
         (물론 conda 도 anaconda.org에서 관리하는 패키지들을 설치할 수 있다.)
         * conda 같은 경우 virtualenv + pip 같은 느낌이지만 설치할 수 있는 패키지가 anaconda.org에서 관리하는 패키지로 한정된다는 제한이 있다.
     * 참고 사이트 : https://hashcode.co.kr/questions/3873/conda%EC%99%80-pip%EC%9D%98-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94
+
 * 쥬피터 노트북(Jupyter notebook) 테마 변경하기
   * 1.anaconda prompt : `pip install jupyterthemes` 입력
   * 2.테마 입력
