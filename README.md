@@ -671,7 +671,13 @@ Matplotlib, plt 등 시각화 관련
   * 원본 이미지 이름 : `N_10_1000_1.jpg`
   * 1) `image_name.rstrip('.jpg')`
   * 2) `image_name.rsplit('.')[0]`
+  * 3) `os.path.splitext(image_name)[0]`
+  * 4) `re.sub('.jpg','', image_name)`
   * 결과는 모두 `N_10_1000_1`로 동일.
+  * ※ 참고 1: 리스트 모든 요소에 대해서 원하는 문자 제거
+    * `[re.sub('.jpg', '', i) for i in kk]` : kk란 리스트에서 `.jpg`를 삭제
+  * ※ 참고 2: 리스트에 확장자(.jpg) 같은 원하는 문자 추가하기
+    * `[i + '.jpg' for i in kk]` : kk 리스트 요소 마다 '.jpg' 추가하기
 
 * python list(리스트)에서 특수문자 및  제거
     * 모든 특수문자 제거 : `[re.sub('[^a-zA-Z0-9]+', '', _) for _ in list_name]`
