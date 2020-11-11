@@ -518,6 +518,14 @@ Matplotlib, plt 등 시각화 관련
             a.sort(reverse=True) # = sort(a, reverse=True) 
             -> [10, 7, 6, 5, 1]
             ```
+  * 리스트 내림차순, 오름차순 정렬
+    * 원본 리스트 변경 없이 리스트를 정렬하는 방법 : `sorted` 함수
+      * `new_list = sorted(list)` # 원본 리스트 변경 X, 문자열은 알파벳순 정렬이며 숫자는 오름차순 정렬.
+      * `new_list = sorted(list, reverse = True)` # 원본 리스트 변경 X, 내림차순 정렬
+    * 원본 리스트 자체를 정렬 : `sort()` 함수
+      * list.sort()
+      * list.sort(reverse=True)
+
 * 연산자
     * `* , / , % , //` : 곱하기, 나누기, 나머지, 몫 
     * `divmod()` 함수 사용하면 몫과 나머지를 튜플 형태로 리턴함.
@@ -659,6 +667,12 @@ Matplotlib, plt 등 시각화 관련
         * `[word for word in list_name if 'hdf5' in word]` : list_name에서 'hdf5'가 포함되어 있는 단어 추출
     * 리스트에서 문자열 인덱스 찾기
       * `["hello","python","world","!"].index("world")`
+* 리스트에서 확장자제거하는 여러가지 방법
+  * 원본 이미지 이름 : `N_10_1000_1.jpg`
+  * 1) `image_name.rstrip('.jpg')`
+  * 2) `image_name.rsplit('.')[0]`
+  * 결과는 모두 `N_10_1000_1`로 동일.
+
 * python list(리스트)에서 특수문자 및  제거
     * 모든 특수문자 제거 : `[re.sub('[^a-zA-Z0-9]+', '', _) for _ in list_name]`
     * `(`와 `)`만 제거 : `[re.sub('[()]', '', _) for _ in test]`
