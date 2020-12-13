@@ -903,6 +903,12 @@ print(time.time() - start_time)
     assert cuda.is_available()
     assert cuda.device_count() > 0
     print(cuda.get_device_name(cuda.current_device()))
+
+    # 주로 사용하는 코드
+    from tensorflow.python.client import device_lib
+    device_lib.list_local_devices()
+
+    tf.config.list_physical_devices('GPU')
     ```
 * 이미지 로드하는 다양한 방법(image loading speed)
   * 참고 사이트 : `https://www.python2.net/questions-165451.htm`
