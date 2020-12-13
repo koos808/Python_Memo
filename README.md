@@ -932,6 +932,18 @@ print(time.time() - start_time)
     * kill -9 35221(해당 프로세스 name) or `ctrl + Shift + C`
 * nvidia-smi 주기적으로 보기
     * `watch -d -n 1 nvidia-smi`
+* 저장 용량 확인 / 폴더 용량, 크기 확인
+  * 참고 : `https://ra2kstar.tistory.com/135`
+  * `du` : 현재 디렉토리에서 서브디렉토리까지의 사용량을 확인 
+    * `du -a` : 현재 디렉토리의 사용량을 파일단위 출력
+    * `du -s` : 총 사용량을 확인
+    * `du -h` : 보기 좋게 바꿔줌 
+    * `du -sh *` : 한단계 서브디렉토리 기준으로 보여준다. 
+  * `df` : 디스크의 남은 용량을 확인 
+    * `df -k` : 킬로바이트 단위로 현재 남은 용량을 확인
+    * `df -m` : 메가바이트 단위로 남은 용량을 왁인 
+    * `df -h` : 보기 좋게 보여줌
+    * `df .` : 현재 디렉토리가 포함된 파티션의 남은 용량을 확인
 
 # 리눅스 GIT Command
 * git clone(복사) : cd로 원하는 폴더 이동 후 Command 입력
