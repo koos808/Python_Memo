@@ -24,9 +24,29 @@ _리스트 정리_
   * 그렇기 때문에 `list_name.extend(list)`를 이용하면 된다.
   * 참고로, extend할거면 array형태로 넣어도 상관 없음.
 
+_Keras 관련_
+===
+* keras : layer concatenate 예제
+    ```
+    from keras.models import Model
+    from keras.layers import Input, Dense, concatenate
+    from keras.utils import plot_model
+    left_branch_input = Input(shape=(2,), name='Left_input')
+    left_branch_output = Dense(5, activation='relu')(left_branch_input)
+
+    right_branch_input = Input(shape=(2,), name='Right_input')
+    right_branch_output = Dense(5, activation='relu')(right_branch_input)
+    concat = concatenate([left_branch_output, right_branch_output], name='Concatenate')
+    final_model_output = Dense(3, activation='sigmoid')(concat)
+    final_model = Model(inputs=[left_branch_input, right_branch_input], outputs=final_model_output,
+                        name='Final_output')
+    final_model.compile(optimizer='adam', loss='binary_crossentropy')
+    # To train
+    final_model.fit([Left_data,Right_data], labels, epochs=10, batch_size=32)
+    ```
+
 _전처리_
 ===
-
 
 * 1.공백 제거한 뒤 변수명 일괄 변경
 ```
@@ -863,7 +883,7 @@ print(time.time() - start_time)
         * `conda env create -f ./environment.yml`
 <br>
 
-* 파이썬에서 GPU 정보와 사용 유무 확인하기
+* 파이썬에서 GPU 정보와 GPU 사용 유무 확인하기
     ```
     import torch
     print(torch.cuda.is_available())
@@ -904,11 +924,16 @@ print(time.time() - start_time)
     assert cuda.device_count() > 0
     print(cuda.get_device_name(cuda.current_device()))
 
-    # 주로 사용하는 코드
+    # 주로 사용하는 코드 1
     from tensorflow.python.client import device_lib
     device_lib.list_local_devices()
 
+    import tensorflow as tf
     tf.config.list_physical_devices('GPU')
+
+    # 주로 사용하는 코드 2 : 인식한 GPU 개수 출력
+    import tensorflow as tf
+    print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
     ```
 * 이미지 로드하는 다양한 방법(image loading speed)
   * 참고 사이트 : `https://www.python2.net/questions-165451.htm`
@@ -1023,6 +1048,9 @@ Deep learning 관련 함수
 
 알아두면 좋은 것들
 ===
+
+* 아나콘다 anaconda update
+  * `conda update -n base -c defaults conda`
 
 * conda와 pip의 차이점
     * `pip` 는 패키지 관리 도구이다. 모듈을 설치하거나 모듈간 디펜던시를 관리하거나 할 때 사용한다.
