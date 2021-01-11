@@ -551,10 +551,14 @@ Matplotlib, plt 등 시각화 관련
     * `* , / , % , //` : 곱하기, 나누기, 나머지, 몫 
     * `divmod()` 함수 사용하면 몫과 나머지를 튜플 형태로 리턴함.
         * `divmod(7,3)` => (2,1)
+    * 파이썬 제곱(**), 나머지(%)
+      * ex1 : `print(2 ** 10)` # 2의 10제곱 => 1024
+      * ex2 : `print(10 % 2)` # 10을 2로 나누었을 때의 나머지 => 0
+
 * 리스트에서 조건에 해당하는 값만 추출하기
   * ```
     # sample
-    originalList = [1, 2, 44, 52, 61, 7, 28, 92, 10
+    originalList = [1, 2, 44, 52, 61, 7, 28, 92, 10]
     
     # 1. filter 함수
     - 형식: filter(함수_이름, iterable)
@@ -566,6 +570,7 @@ Matplotlib, plt 등 시각화 관련
     # 2. Nested List Comprehension
     filteredList = [x for x in originalList if x%2==0]
     ```
+
 * 연속된 숫자 리스트(list) 만들기
     ```
     numList = list(range(1,11))
@@ -587,7 +592,7 @@ Matplotlib, plt 등 시각화 관련
 
 * image(이미지)에서 원하는 부분 cropping(잘라내기)
     ```
-    def im_trim (img): #함수로 만든다
+    def im_trim (img):
     for (x,y,w,h) in kkk:
         img_trim = img[y:y+h, x:x+w] 
         cv2.imwrite('test_cropping_data/' + 'test_image.jpg',img_trim) 
