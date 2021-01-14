@@ -518,6 +518,12 @@ Matplotlib, plt 등 시각화 관련
         * `all_data[all_data.image_id.isin(train_idx)]` : all_data 데이터에서 image_id 열 중에 train_idx 리스트에 포함된 요소만 추출.
     * data.frame(데이터 프레임)에서 조건에 해당하는 행만 추출
         * df에서 image_id가 P_002893.jpg인 행만 추출 :  `df[df['image_id']=='P_002893.jpg']`
+    * data shuffle, dataframe shuffle 방법
+      * 방법 1 : `df.sample(frac=1).reset_index(drop=True)`
+        * reset_index(drop=False) 옵션을 지정하면 기존 dataframe index을 새 열로 만들어준다. 즉, `drop=True` 옵션을 지정하면 index 열이 추가되지 않는다.
+        * `frac=1` 파라미터(매개 변수)는 반환해야하는 전체 인스턴스의 비율을 결정한다. 즉 셔플을 하려면 `frac=1`로 전체 비율을 설정해주면 됨.
+        * `df.sample(frac=1)`만 쓰는게 가장 적합
+      * 방법 2 : `sklearn.utils.shuffle(df)`
 
 * set 자료형을 이용하면 리스트의 차집합, 합집합, 교집합을 구할 수 있다.
     * ```
