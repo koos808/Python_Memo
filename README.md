@@ -60,6 +60,9 @@ k=' '.join(k).split()
 shares.columns=' '.join(shares.columns.values).split()
 ```
 
+* dataframe 데이터프레임 x열의 값들 list로 바꾸기
+  * `np.array(dummy_idx["x"]).tolist()`
+
 * 2.열 선택
     * a에 해당하는 열 가져오기
     ```
