@@ -281,12 +281,19 @@ _함수_
         print(key, result[key])
 
     # example 3
+    # example 3 :
     import numpy as np
     x = np.array([1,1,1,2,2,2,5,25,1,1])
     y = np.bincount(x)
     ii = np.nonzero(y)[0]
     Zip(ii,y[ii]) # [(1, 5), (2, 3), (5, 1), (25, 1)]
 
+    # exmple 3-1 : 제일 유용
+    neg, pos = np.bincount(train_tel['대출실행여부'])
+    total = neg + pos
+    print('Examples:\n    Total: {}\n    Positive: {} ({:.2f}% of total)\n'.format(
+    total, pos, 100 * pos / total))
+    
     # example 4 : 키 없이 카운트 한 값만 알아내고 싶을 때 사용
     result = Counter(jaffe_Y).values()
     print(result)
