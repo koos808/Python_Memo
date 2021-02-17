@@ -446,10 +446,14 @@ Matplotlib, plt 등 시각화 관련
         * 열 번호에 `drop` 사용
           * `df.drop(df.columns[[0, 2]], axis='columns')` 
     * 변경하고 싶은 열 이름 변경
-        * df = `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'})`
-        * rename the existing DataFrame (rather than creating a copy)
-            * `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)`
-            or `df.rename({'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True,axis=1)`
+        * 방법 1 : 열 이름 1:1 매칭 
+          * df = `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'})`
+          * rename the existing DataFrame (rather than creating a copy)
+              * `df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)`
+              or `df.rename({'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True,axis=1)`
+        * 방법 2 : 새 이름으로 덮어쓰기
+          * `df.columns = ['New_1', 'New_2']`
+          * 응용 : `ensemble_result.columns = [('M_1' + ensemble_result.columns).tolist()]`
     * DataFrame(데이터 프레임) 만들기 기초적인 방법
         ```
         raw_data = {
