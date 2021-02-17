@@ -534,6 +534,10 @@ Matplotlib, plt 등 시각화 관련
         * `df.sample(frac=1)`만 쓰는게 가장 적합
       * 방법 2 : `sklearn.utils.shuffle(df)`
 
+    * Pandas dataframe(데이터프레임) 행 평균 열 평균 구하기
+      * 행 평균 : `total['class_1'] = total[class_1].mean(axis=1)`
+      * 열 평균 : `total.mean(axis=0)`
+
 * set 자료형을 이용하면 리스트의 차집합, 합집합, 교집합을 구할 수 있다.
     * ```
       s1 = set([1, 2, 3, 4, 5, 6])
