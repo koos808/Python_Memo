@@ -532,7 +532,7 @@ Matplotlib, plt 등 시각화 관련
         * `all_data[all_data.image_id.isin(train_idx)]` : all_data 데이터에서 image_id 열 중에 train_idx 리스트에 포함된 요소만 추출.
     * data.frame(데이터 프레임)에서 조건에 해당하는 행만 추출
         * df에서 image_id가 P_002893.jpg인 행만 추출 :  `df[df['image_id']=='P_002893.jpg']`
-        * 위 처럼 하면 index reset(인덱스 리셋) 해줘야 함 : `df.reset_index()`
+        * 위 처럼 하면 index reset(인덱스 리셋) 해줘야 함 : `df = df.reset_index()`
     * data shuffle, dataframe shuffle 방법
       * 방법 1 : `df.sample(frac=1).reset_index(drop=True)`
         * reset_index(drop=False) 옵션을 지정하면 기존 dataframe index을 새 열로 만들어준다. 즉, `drop=True` 옵션을 지정하면 index 열이 추가되지 않는다.
