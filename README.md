@@ -453,7 +453,8 @@ Matplotlib, plt 등 시각화 관련
               or `df.rename({'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True,axis=1)`
         * 방법 2 : 새 이름으로 덮어쓰기
           * `df.columns = ['New_1', 'New_2']`
-          * 응용 : `ensemble_result.columns = [('M_1' + ensemble_result.columns).tolist()]`
+          * 응용 : `ensemble_result.columns = [('M_1_' + ensemble_result.columns).tolist()]`
+          * -> 기존 열이름에 'M_1_' 붙혀주기
     * DataFrame(데이터 프레임) 만들기 기초적인 방법
         ```
         raw_data = {
