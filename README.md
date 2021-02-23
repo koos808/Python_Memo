@@ -764,6 +764,14 @@ Matplotlib, plt 등 시각화 관련
         driver.close()
         ```
 
+* 크롬드라이버(ChormeDriver) 에러
+    * `SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 83`
+    * chome 버전과 chromedriver의 버전이 맞지 않아 동작하지 않는 문제.
+    * 1) chrome 버전 확인 : `메뉴 -> 설정 -> Chrome 정보`
+    * 2) 크롬드라이버(ChromeDriver) 다운 : `https://chromedriver.chromium.org/downloads`
+      * 크롬 버전과 맞는 크롬드라이버 버전 다운 받기
+      * 이후 파이썬 코드 있는 경로에 붙혀넣기
+
 _ETC_
 ===
 * ` __init__() `
