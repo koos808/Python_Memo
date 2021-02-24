@@ -1184,3 +1184,15 @@ Deep learning 관련 함수
         * Members of the admin group may gain root privileges에 아래 내용 추가
         * `%user_name ALL=(ALL) ALL` : user 이름 추가
         * ctrl+x -> Y -> File Name to Write: /etc/sudoers.tmp 에서 `File Name to Write: /etc/sudoers`로 변경후 엔터 -> Y
+
+* 우분투 종료 & 재시작 코드
+  * 재부팅, 재시작
+    * `reboot` : 바로 재부팅
+    * `sudo shutdown -r now` : 바로 재부팅
+    * `sudo shutdown -r 5` : 5분 후에 재부팅
+    * `sudo shutdown -r 22:00 ` : 22시에 재부팅
+  * 종료
+    * `reboot -p ` : 시스템 바로 종료
+    * `shutdown -h now` : 시스템 바로 종료
+    * `shutdown -P +10` : 10분 후에 종료
+    * `shutdown -h 23:59 ` : 23시 59분에 종료
