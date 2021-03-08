@@ -1005,8 +1005,6 @@ print(time.time() - start_time)
         * ` cp -R /home/desktop/folder_1 /home/desktop/folder_2 `
     * 폴더 하위 파일들을 복사 : foler_1의 하위 폴더들을 folder_2에 복사
         * ` cp -R /home/desktop/folder/file/. /home/desktop/folder_2 `
-* Process 종료
-    * kill -9 35221(해당 프로세스 name) or `ctrl + Shift + C`
 * nvidia-smi 주기적으로 보기
     * `watch -d -n 1 nvidia-smi`
 * 저장 용량 확인 / 폴더 용량, 크기 확인
@@ -1021,6 +1019,52 @@ print(time.time() - start_time)
     * `df -m` : 메가바이트 단위로 남은 용량을 왁인 
     * `df -h` : 보기 좋게 보여줌
     * `df .` : 현재 디렉토리가 포함된 파티션의 남은 용량을 확인
+
+* Process 관련
+  * Process 확인
+    * `htop` or `top`
+    * `ps -f` or `ps aux`
+      * -f (Full Listing, 정규화된 포맷) : 프로세스의 정보에 대해 상세하게 출력
+      * -l (Long Listing, 자세한 리스팅) : 프로세스의 기본 정보 및 프로세스가 사용하고 있는 OS 자원(CPU, Memory) 활용 규모, OS의 리소스 활성화 상태 등을 출력
+      * -o (Optional Listing, 컬럼값 선택) : 프로세스의 상태값 중 출력을 원하는 컬럼값을 지정하여 요청, 출력
+
+  * Process 종료
+    * `kill -9 35221`(해당 프로세스 name, ID) or `ctrl + Shift + C`
+    * `kill <PID>`
+    * `killall <프로세스이름>` : ex) `killAll -9 koos`
+    * -9 옵션은 터미널에서 프로세스로 보내는 시그널이다
+
+* 리눅스 백그라운드 실행(터미널 종료 상관 x)
+  * 방법 1) `nohup`
+    * `nohup [커멘드] &`
+    * ex) `nohup python3 main.py &` : 로그 확인은 생성된 nohup.out이라는 로그파일
+    * 종료 방법 -> `ps -ef | grep 쉘스크립트파일명` 으로 PID찾고 `KILL -9 PID`
+
+  * 방법 2) `Screen`
+    * screen 생성 : `screen -S screen_name`
+    * screen 목록 확인하기 : `screen -ls` == `screen -list` (VPN 연결이 끊어진 경우 서버에 다시 로그인하고을 입력)
+    * screen 재접속 : `screen -r screen_name`
+    
+    * Screen 세션 접속 후 명령어
+      * ctrl+a ? : 키보드 사용방법 확인하기
+      * **`ctrl+a d` : screen에서 빠져나가기(종료되지 않음)**
+      * **`screen -r <session_name>` : 스크린 재접속(Reattach), 연결 해제 된 위치에서 재접속**
+      * **`screen -x <session_name>` : 스크린 재접속(Reattach), 연결 해제 된 위치에서 재접속**
+      * -R 옵션은 Single display mode, -x 옵션은 Multi display mode이다. 즉, -R옵션은 해당 스크린에 여러 명이 들어가도 서로 무슨 명령을 치는지 모르지만, -x 옵션은 해당 스크린에 여러명이 들어가도 마치 한 화면처럼 움직여, 상대방이 무슨 명령어를 치는지까지 다 볼 수 있다.
+      * **`exit` : screen 종료하면서 빠져나가기**
+      * **`screen -S [스크린 이름] -X quit` : 해당 스크린 종료 (해당 스크린 삭제됨). [스크린이름] 대신 스크린 번호를 써도 된다.**
+
+      * ctrl+a k : screen 종료하면서 빠져나가기
+      * ctrl+a | : 세로로 화면 분할
+      * ctrl+a S : 가로로 화면 분할
+      * `ctrl+a Tab` : 분할된 화면 으로 넘어가기
+      * `ctrl+a c` : 새 세션 열기
+      * `ctrl+a esc` : 스크롤 하기(아래 명령어 후 방향키 입력)
+
+    * 참고 : https://minimin2.tistory.com/123#70f71bd2-20da-4658-963d-9163a68c0af9
+
+* screen
+
 
 # 리눅스 GIT Command
 * git clone(복사) : cd로 원하는 폴더 이동 후 Command 입력
