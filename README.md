@@ -1203,3 +1203,4 @@ Deep learning 관련 함수
     * `shutdown -h now` : 시스템 바로 종료
     * `shutdown -P +10` : 10분 후에 종료
     * `shutdown -h 23:59 ` : 23시 59분에 종료
+
