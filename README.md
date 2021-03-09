@@ -1041,29 +1041,53 @@ print(time.time() - start_time)
     * 종료 방법 -> `ps -ef | grep 쉘스크립트파일명` 으로 PID찾고 `KILL -9 PID`
 
   * 방법 2) `Screen`
-    * screen 생성 : `screen -S screen_name`
-    * screen 목록 확인하기 : `screen -ls` == `screen -list` (VPN 연결이 끊어진 경우 서버에 다시 로그인하고을 입력)
-    * screen 재접속 : `screen -r screen_name`
+    * screen 생성
+      * `screen -S screen_name`
+    * screen 목록 확인하기
+    * `screen -ls` == `screen -list` 
+    * (VPN 연결이 끊어진 경우 서버에 다시 로그인하고을 입력)
     
-    * Screen 세션 접속 후 명령어
-      * ctrl+a ? : 키보드 사용방법 확인하기
+    
+    * Screen 세션 끊기(**Detach**)
       * **`ctrl+a d` : screen에서 빠져나가기(종료되지 않음)**
-      * **`screen -r <session_name>` : 스크린 재접속(Reattach), 연결 해제 된 위치에서 재접속**
-      * **`screen -x <session_name>` : 스크린 재접속(Reattach), 연결 해제 된 위치에서 재접속**
+      * **`exit` : screen 종료하면서 빠져나가기(종료됨)**
+      * screen -d screen_name : 다른 터미널에서 screen 명령을 실행할 때, 원격 분리(remote detach)
+  
+    * screen 재접속(**Reattach**)
+      * `screen -r` : 기본 세션에 연결합니다. 이 명령어는 screen session이 하나일때만 작동.
+      * `screen -r <SCREENID>` : 특정 screen session에 연결
+      * **`screen -r session_name` : 스크린 재접속(Reattach), 연결 해제 된 위치에서 재접속**
+      * **`screen -x session_name` : 스크린 재접속(Reattach), 연결 해제 된 위치에서 재접속**
       * -R 옵션은 Single display mode, -x 옵션은 Multi display mode이다. 즉, -R옵션은 해당 스크린에 여러 명이 들어가도 서로 무슨 명령을 치는지 모르지만, -x 옵션은 해당 스크린에 여러명이 들어가도 마치 한 화면처럼 움직여, 상대방이 무슨 명령어를 치는지까지 다 볼 수 있다.
-      * **`exit` : screen 종료하면서 빠져나가기**
+
+    * screen 세션 종료
       * **`screen -S [스크린 이름] -X quit` : 해당 스크린 종료 (해당 스크린 삭제됨). [스크린이름] 대신 스크린 번호를 써도 된다.**
 
+    * 연결을 끊은 screen session 죽이기
+      * `screen -X -S SCREENID quit`
+      * `screen -S SCREENID -X quit`
+
+    * Screen session 로그
+      * `screen -L` : -L screen에 화면에 로그가 자동 출력되도록 알립니다.
+      * 출력한 것은 screenlog.n file에 저장되고, 여기서n은 숫자
+      * 그 파일은 아래의 명령을 사용해 볼 수 있습니다.
+      * `Ctrl-a + H` -> screenlog.n file에 로그를 저장할 수도 있다.
+      * 한번 더 Ctrl-a + H를 눌러 종료하십시오.
+      * `-L` 옵션을 통해 screen 로그파일의 이름을 정할 수 있습니까? -> `Yes`
+      * -> `less -r /home/dasunhegoda/screenlog.0`
+      * -> `cat /home/dasunhegoda/screenlog.0`
+
+    * 그 외
+      * ctrl+a ? : 키보드 사용방법 확인하기
       * ctrl+a k : screen 종료하면서 빠져나가기
       * ctrl+a | : 세로로 화면 분할
       * ctrl+a S : 가로로 화면 분할
       * `ctrl+a Tab` : 분할된 화면 으로 넘어가기
       * `ctrl+a c` : 새 세션 열기
-      * `ctrl+a esc` : 스크롤 하기(아래 명령어 후 방향키 입력)
+      * `ctrl+a esc` : 스크롤 하기(아래 명령어 후 방향키 입력) -> `esc` 누르면 copy mode로 다시 돌아옴
 
     * 참고 : https://minimin2.tistory.com/123#70f71bd2-20da-4658-963d-9163a68c0af9
-
-* screen
+    * 참고 : https://erwinousy.medium.com/screen-command-%EC%82%AC%EC%9A%A9%EB%B2%95-linux-mac-62bf5dd23110
 
 
 # 리눅스 GIT Command
