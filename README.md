@@ -779,6 +779,38 @@ Matplotlib, plt 등 시각화 관련
       * 크롬 버전과 맞는 크롬드라이버 버전 다운 받기
       * 이후 파이썬 코드 있는 경로에 붙혀넣기
 
+
+_argparse_
+===
+* argparse : 명령행 옵션, 인자와 부속 명령을 위한 파서
+  * 참고 1) https://docs.python.org/ko/3/library/argparse.html
+  * 참고 2) https://brownbears.tistory.com/413
+
+* 예시 코드
+    ```
+    import argparse
+
+    # 인자값을 받을 수 있는 인스턴스 생성
+    parser = argparse.ArgumentParser(description='사용법 테스트입니다.')
+
+    # 입력받을 인자값 등록
+    parser.add_argument('--target', required=True, help='어느 것을 요구하냐')
+    parser.add_argument('--env', required=False, default='dev', help='실행환경은 뭐냐')
+
+    # 입력받은 인자값을 args에 저장 (type: namespace)
+    args = parser.parse_args()
+
+    # 입력받은 인자값 출력
+    print(args.target)
+    print(args.env)
+    ```
+
+  * argparse 모듈은 사용자 친화적인 명령행 인터페이스를 쉽게 작성하도록 합니다. 프로그램이 필요한 인자를 정의하면, argparse 는 sys.argv 를 어떻게 파싱할지 파악합니다. 또한 argparse 모듈은 도움말과 사용법 메시지를 자동 생성하고, 사용자가 프로그램에 잘못된 인자를 줄 때 에러를 발생시킵니다.
+  * 
+
+
+
+
 _ETC_
 ===
 * ` __init__() `
