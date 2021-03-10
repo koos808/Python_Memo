@@ -222,6 +222,10 @@ _함수_
     int(0.5) = 1       int(1.3)=1
     ```
 
+* assert() : 가정설정문
+  * `assert isinstance(10, int), 'Expected int'`
+  * -> 만약 isinstance(10, int)이 참이 아니면 'Expected int'을 반환
+
 ### Numpy Function
 * np.random.rand() : Numpy의 random 모듈은 랜덤 값 생성을 위한 rand() 함수를 제공함.
 0에서 1사이의 값을 생성하여 반환함. randint(low, high=None) 함수는 high를 넣지 않은 경우에는 0에서 low사이의 정수를 랜덤으로 생성하고 high를 넣은 경우 low에서 high 사이의 정수를 생성함.
@@ -331,7 +335,6 @@ _함수_
     * `from sklearn.utils import shuffle`
     * x, y에 각각 셔플된 값 넣기 : `x, y = shuffle(img_data, Y, random_state = 202006)`
     * `y = shuffle(Y, random_state = 202006)`
-
 
 Matplotlib, plt 등 시각화 관련
 ===
@@ -787,6 +790,7 @@ _argparse_
   * 참고 2) https://brownbears.tistory.com/413
 
 * 예시 코드
+  * 구성
     ```
     import argparse
 
@@ -804,9 +808,21 @@ _argparse_
     print(args.target)
     print(args.env)
     ```
+  * 테스트
+    ```
+    $ python3 argparse_test.py --target=테스트 --env=local
+    테스트
+    local
+
+    $ python3 argparse_test.py --target=테스트
+    테스트
+    dev : env 입력안하면 default로 dev를 출력
+    ```
+
+  * `python3 argparse_test.py -h`  : **-h, --help** -> show this help message and exit
 
   * argparse 모듈은 사용자 친화적인 명령행 인터페이스를 쉽게 작성하도록 합니다. 프로그램이 필요한 인자를 정의하면, argparse 는 sys.argv 를 어떻게 파싱할지 파악합니다. 또한 argparse 모듈은 도움말과 사용법 메시지를 자동 생성하고, 사용자가 프로그램에 잘못된 인자를 줄 때 에러를 발생시킵니다.
-  * 
+
 
 
 
