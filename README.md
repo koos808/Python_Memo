@@ -1308,7 +1308,7 @@ Deep learning 관련 함수
 * chmod를 사용한 권한 부여 방법
   * chmod 명령어를 사용하여 파일 또는 디렉토리(폴더)에 권한을 부여, 수정할 수 있습니다. 만약 모든 권한 읽기, 쓰기, 실행을 부여한다면 아래와 같습니다.
   * `sudo -s` : root 권한 얻기
-  * `chmod -R 777 filename`
+  * `chmod -R 777 filename` : 권한 777로 변경 시 permission denied 문제 안생김
 
 * 우분투 종료 & 재시작 코드
   * 재부팅, 재시작
