@@ -1305,6 +1305,10 @@ Deep learning 관련 함수
         * Members of the admin group may gain root privileges에 아래 내용 추가
         * `%user_name ALL=(ALL) ALL` : user 이름 추가
         * ctrl+x -> Y -> File Name to Write: /etc/sudoers.tmp 에서 `File Name to Write: /etc/sudoers`로 변경후 엔터 -> Y
+* chmod를 사용한 권한 부여 방법
+  * chmod 명령어를 사용하여 파일 또는 디렉토리(폴더)에 권한을 부여, 수정할 수 있습니다. 만약 모든 권한 읽기, 쓰기, 실행을 부여한다면 아래와 같습니다.
+  * `sudo -s` : root 권한 얻기
+  * `chmod -R 777 filename`
 
 * 우분투 종료 & 재시작 코드
   * 재부팅, 재시작
