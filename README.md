@@ -226,6 +226,14 @@ _함수_
   * `assert isinstance(10, int), 'Expected int'`
   * -> 만약 isinstance(10, int)이 참이 아니면 'Expected int'을 반환
 
+* dictionary 타입 관련 함수
+  * csv파일 불러오기 
+    ```
+    with open('car.csv') as csvfile:
+        cars = list(csv.DictReader(csvfile))
+    ```
+  * `cars[0].keys()`, `cars[0].items()`, `cars[0].values()`
+
 ### Numpy Function
 * np.random.rand() : Numpy의 random 모듈은 랜덤 값 생성을 위한 rand() 함수를 제공함.
 0에서 1사이의 값을 생성하여 반환함. randint(low, high=None) 함수는 high를 넣지 않은 경우에는 0에서 low사이의 정수를 랜덤으로 생성하고 high를 넣은 경우 low에서 high 사이의 정수를 생성함.
