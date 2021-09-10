@@ -980,6 +980,9 @@ print(time.time() - start_time)
         * `conda env export --name YOUR_ENV_NAME > environment.yml`
     * 추출한 가상환경으로 새로운 가상환경 생성
         * `conda env create -f ./environment.yml`
+    * 원하는 GPU 번호로 주피터 노트북 틀기
+      * `CUDA_VISIBLE_DEVICES=1 jupyter notebook`
+
 <br>
 
 * 파이썬에서 GPU 정보와 GPU 사용 유무 확인하기
@@ -1059,6 +1062,16 @@ print(time.time() - start_time)
         * ` cp -R /home/desktop/folder_1 /home/desktop/folder_2 `
     * 폴더 하위 파일들을 복사 : foler_1의 하위 폴더들을 folder_2에 복사
         * ` cp -R /home/desktop/folder/file/. /home/desktop/folder_2 `
+
+* 서버에서 서버(서버간) 폴더, 파일 복사하기
+  * sch 이용
+  * instar 폴더를 B서버에 koos 폴더 안에 복사 
+    * `scp -r /home/koos/instar remoteID@remoteIP주소:/home1/koos`
+  * instar 파일을 B서버에 koos 폴더 안에 복사 
+    * `scp -r /home/koos/instar/test.txt remoteID@remoteIP주소:/home1/koos/`
+  * 조건 : 예를 들어 "A"서버에서 "B"서버로 폴더나 파일을 이동하려면 "B" 서버에 "A"서버 IP를 방화벽 접속 가능하도록 권한을 부여해야 한다.
+  * 반대도 마찬가지로 파일 이동가능하도록 방화벽 권한을 주어야 한다.
+
 * nvidia-smi 주기적으로 보기
     * `watch -d -n 1 nvidia-smi`
 * 저장 용량 확인 / 폴더 용량, 크기 확인
@@ -1073,6 +1086,10 @@ print(time.time() - start_time)
     * `df -m` : 메가바이트 단위로 남은 용량을 왁인 
     * `df -h` : 보기 좋게 보여줌
     * `df .` : 현재 디렉토리가 포함된 파티션의 남은 용량을 확인
+
+* CUDA, CUDNN 버전 확인
+  * cudnn 버전 확인 : `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A `
+  * CUDA : `nvcc -V`, `nvidia-smi` 
 
 * Process 관련
   * Process 확인
@@ -1100,7 +1117,6 @@ print(time.time() - start_time)
     * screen 목록 확인하기
     * `screen -ls` == `screen -list` 
     * (VPN 연결이 끊어진 경우 서버에 다시 로그인하고을 입력)
-    
     
     * Screen 세션 끊기(**Detach**)
       * **`ctrl+a d` : screen에서 빠져나가기(종료되지 않음)**
