@@ -383,7 +383,7 @@ Matplotlib, plt 등 시각화 관련
         ```
 
 * zip() 함수
-    * 파이썬 내장 함수로 두 개의 배열에서 같은 인덱스의 요소를 순서대로 묶어준다.
+    * 파이썬 내장 함수로 두 개의 배열에서 같은 인덱스의 요소t를 순서대로 묶어준다.
         ```
         zip([1,2,3],[4,5,6]) -> [(1,4),(2,5),(3,6)] 
         ```
@@ -1090,7 +1090,7 @@ print(time.time() - start_time)
     * `df .` : 현재 디렉토리가 포함된 파티션의 남은 용량을 확인
 
 * CUDA, CUDNN 버전 확인
-  * cudnn 버전 확인 : `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A `
+  * cudnn 버전 확인 : `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A`
   * CUDA : `nvcc -V`, `nvidia-smi` 
 
 * Process 관련
