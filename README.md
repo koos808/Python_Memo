@@ -978,6 +978,9 @@ print(time.time() - start_time)
         * `conda env list`
     * 가상환경 삭제
         * `conda remove --name YOUR_ENV_NAME --all`
+    * 가상환경 복제
+      * conda create -n 생성할가상환경명 --clone 원본가상환경명
+      * `conda create -n env_name_2 --clone env_name_1`
     * 가상환경 추출
         * `conda env export --name YOUR_ENV_NAME > environment.yml`
     * 추출한 가상환경으로 새로운 가상환경 생성
