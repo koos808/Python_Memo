@@ -443,6 +443,7 @@ Matplotlib, plt 등 시각화 관련
         * 열 : `df.shape[1]`, `len(df.columns)`
     * 변수 타입 확인
         * `type()`
+        * 데이터 프레임 각 열 타입 확인 : `df.dtypes`
     * 특정 컬럼의 데이터 타입 변경
         * `df = df.astype({'col1': 'int'})`
     * 특정 열 제외하고 가져오기
