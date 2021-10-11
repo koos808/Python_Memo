@@ -1046,6 +1046,10 @@ print(time.time() - start_time)
     print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
     ```
 
+* CPU, GPU 메모리 비우기
+  * `torch.cuda.empty_cache()` # GPU 캐시 데이터 삭제
+  * `gc.collect()`
+
 * 이미지 로드하는 다양한 방법(image loading speed)
   * 참고 사이트 : `https://www.python2.net/questions-165451.htm`
   * pyvips : cv2 imread, pillow open 보다 훨씬 빠름
