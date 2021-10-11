@@ -879,6 +879,8 @@ _ETC_
   # 엑셀파일 읽기
   df = pd.read_excel("test.xlsx")
    ```
+* Time step 관련
+  * `.strftime('%Y-%m-%d')` : 원하는 포맷으로 변경
 * 폴더 없으면 생성하기
     * 기본 코드
         ```
