@@ -348,6 +348,45 @@ _함수_
 * dataframe 행 뒤집기(행 반대 sort, 행 역순)
   * `data.iloc[::-1]` : 첫행이 끝으로 가고 끝행이 첫행으로 가도록 뒤집힘
 
+### 주식 주가 전처리
+* daily return(일별 수익률), log return, cumulative returns(누적 수익률) 계산
+  * 데이터 수집 
+    ```
+    import yfinance as yf
+    import pandas as pd
+    import numpy as np
+
+    #Download price data from Yahoo finance (가격 데이터 다운로드)
+    p_apple = yf.download('AAPL',start = '2019-01-01')
+    p_google = yf.download('GOOGL',start = '2019-01-01')
+
+    # 수정종가나 종가만 추출
+    p_apple = p_apple[['Adj Close']].rename(columns = {'Adj Close':'Close_Apple'})
+    p_google = p_google[['Adj Close']].rename(columns = {'Adj Close':'Close_Google'})
+
+    price = pd.concat([p_apple,p_google],axis=1)
+    ``` 
+  * 일별 수익률 계산(Calculate daily returns)
+    ```
+    #Calculate the daily return of individual stock (개별 주식 일별 수익률 계산)
+    #1) daily returns = (today price - previous day price)/(previous day price) - 1
+    ptc_ret = price.pct_change(1).dropna()
+    ptc_ret = ptc_ret.rename(columns={'Close_Apple':'Ret_Apple','Close_Google':'Ret_Google'})
+    
+    #2) daily log returns = ln(today price) - ln(previuos day price)
+    log_ret = np.log(price).diff(1).dropna()
+    log_ret = log_ret.rename(columns={'Close_Apple':'LRet_Apple','Close_Google':'LRet_Google'})
+    ```
+  * 누적 수익률 계산
+    ```
+    #1) daily returns
+    retPlus1 = ptc_ret + 1
+    cum_ret = retPlus1.cumprod() - 1
+    
+    #2) daily log returns
+    cum_log_ret = log_ret.cumsum()
+    ```
+  * 참고 : https://invest-in-yourself.tistory.com/278
 
 Matplotlib, plt 등 시각화 관련
 ===
