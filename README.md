@@ -344,6 +344,11 @@ _함수_
     * x, y에 각각 셔플된 값 넣기 : `x, y = shuffle(img_data, Y, random_state = 202006)`
     * `y = shuffle(Y, random_state = 202006)`
 
+### Pandas Function
+* dataframe 행 뒤집기(행 반대 sort, 행 역순)
+  * `data.iloc[::-1]` : 첫행이 끝으로 가고 끝행이 첫행으로 가도록 뒤집힘
+
+
 Matplotlib, plt 등 시각화 관련
 ===
 
@@ -860,8 +865,15 @@ _ETC_
     3) 한줄 실행 Alt + Shift + E
     4) 코드 축소 ctrl+shift+(-,+)
     ```
-* pandas read.csv 인코딩
+* pandas read_csv(read.csv) 관련
+  * pandas read.csv 인코딩
     * `data = pd.read_csv('0009.csv',encoding='CP949')`
+  * 옵션) `index_col=['date']` & `parse_dates=True`
+    * index는 date로 되며 `parse_dates=True`로 인해 index인 date는 날짜 형식으로 됨.
+  * 옵션) dayfisrt=False
+    * 만약에 '1/5/2020 10:00:00' (1월/ 5일/ 2020년 10시:00분:00초) 의 형태로 월(month)이 일(day)보다 먼저 나오는 파일을 읽어와서 파싱하는 경우에는 dayfirst=False 로 설정해주면 된다.
+
+   
 * csv파일(df.to_csv)로 저장할 때 한글깨짐 현상 : encoding='utf8' -> encoding='utf-8-sig'
     * `pd.DataFrame(rows).to_csv("test2.csv", header = False, index = False, encoding='utf-8-sig')`
 * csv 파일 저장 다른 코드
