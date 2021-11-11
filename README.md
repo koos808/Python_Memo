@@ -379,15 +379,15 @@ _함수_
     ```
   * log return 계산
     ```
+    data['Price_t-1'] = data['Price'].shift(-1)
     # Log return
     data['return'] = (data['Price'] - data['Price_t-1'])/data['Price_t-1']
     # Log return : 다른버전(위와 값은 동일)
     # price = data['Price'].astype(np.float64)
-    # np.log(price/price.shift(-1))
+    # data['return_2'] = np.log(price/price.shift(-1))
 
     # Log return :다른버전(위와 값은 동일)
-    # np.log(price).diff(-1)
-
+    # data['return_3'] = np.log(price).diff(-1)
     ```
 
   * 누적 수익률 계산
