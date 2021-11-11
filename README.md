@@ -377,6 +377,19 @@ _함수_
     log_ret = np.log(price).diff(1).dropna()
     log_ret = log_ret.rename(columns={'Close_Apple':'LRet_Apple','Close_Google':'LRet_Google'})
     ```
+  * log return 계산
+    ```
+    # Log return
+    data['return'] = (data['Price'] - data['Price_t-1'])/data['Price_t-1']
+    # Log return : 다른버전(위와 값은 동일)
+    # price = data['Price'].astype(np.float64)
+    # np.log(price/price.shift(-1))
+
+    # Log return :다른버전(위와 값은 동일)
+    # np.log(price).diff(-1)
+
+    ```
+
   * 누적 수익률 계산
     ```
     #1) daily returns
