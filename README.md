@@ -1148,6 +1148,12 @@ print(time.time() - start_time)
   * 조건 : 예를 들어 "A"서버에서 "B"서버로 폴더나 파일을 이동하려면 "B" 서버에 "A"서버 IP를 방화벽 접속 가능하도록 권한을 부여해야 한다.
   * 반대도 마찬가지로 파일 이동가능하도록 방화벽 권한을 주어야 한다.
 
+* 리눅스 메모리 및 캐시메모리 정리
+  * 리눅스에서 시스템 블록에 있는 캐시 삭제 (버퍼 캐시 삭제)
+    * `sudo sysctl -w vm.drop_caches=2`
+  * 페이지 캐시까지 모두 삭제
+    * `sudo sysctl -w vm.drop_caches=3`
+
 * nvidia-smi 주기적으로 보기
     * `watch -d -n 1 nvidia-smi`
 * 저장 용량 확인 / 폴더 용량, 크기 확인
